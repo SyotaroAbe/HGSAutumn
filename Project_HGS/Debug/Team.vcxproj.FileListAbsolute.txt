@@ -4,3 +4,4 @@ C:\Users\student\Desktop\HGS_Autumn_2024\HGSAutumn\Project_HGS\Debug\Team.exe
 C:\Users\student\Desktop\HGS_2024\HGSAutumn\Project_HGS\Debug\Team.exe
 C:\Users\student\Desktop\ハッカソン24秋\HGSAutumn\Project_HGS\Debug\Team.exe
 C:\個人\チーム制作まとめ\ハッカソン\HGSAutumn\Project_HGS\Debug\Team.exe
+C:\Users\student\Desktop\HGS_2024_\HGSAutumn\Project_HGS\Debug\Team.exe
