@@ -1,6 +1,10 @@
-﻿  2DEffect.cpp
+﻿  precompile.cpp
+  2DEffect.cpp
   2DUI.cpp
   2DUI_edit.cpp
+  action.cpp
+  block.cpp
+  blockmanager.cpp
   BowmanArrow.cpp
   debris.cpp
   enemyBowman.cpp
@@ -15,15 +19,15 @@
   Edit.cpp
   effect.cpp
   enemy.cpp
+  コンパイル中...
   enemyAshigaru.cpp
   fade.cpp
   game.cpp
-C:\Users\student\Desktop\HGS_2024\HGSAutumn\Project_HGS\GamePause.h(14,1): warning C4005: 'MAX_FG': マクロが再定義されました。
-C:\Users\student\Desktop\HGS_2024\HGSAutumn\Project_HGS\Pause.h(14): message : 'MAX_FG' の以前の定義を確認してください
-  コンパイル中...
   GamePause.cpp
+  inputManager.cpp
   logo.cpp
   MoveHelpUI.cpp
+  objectAnim2d.cpp
   ParameterUI.cpp
   Player2D.cpp
   screenCover2D.cpp
@@ -36,12 +40,12 @@ C:\Users\student\Desktop\HGS_2024\HGSAutumn\Project_HGS\Pause.h(14): message : '
   manager.cpp
   MapModel.cpp
   model.cpp
+  コンパイル中...
   modelEffect.cpp
   motion.cpp
   cursorUI.cpp
   number.cpp
   numberBillboard.cpp
-  コンパイル中...
   numberFall.cpp
   object.cpp
   object2D.cpp
@@ -57,12 +61,12 @@ C:\Users\student\Desktop\HGS_2024\HGSAutumn\Project_HGS\Pause.h(14): message : '
   objmeshRing.cpp
   objmeshWall.cpp
   particle.cpp
+  コンパイル中...
   Pause.cpp
   player.cpp
   LevelModelEffect.cpp
   ranking.cpp
   renderer.cpp
-  コンパイル中...
   result.cpp
   SampleLevelModel.cpp
   SampleObj2D.cpp
@@ -74,13 +78,15 @@ C:\Users\student\Desktop\HGS_2024\HGSAutumn\Project_HGS\Pause.h(14): message : '
   skinmesh.cpp
   slowManager.cpp
   smoke_screen.cpp
+  sound.cpp
   texture.cpp
   time.cpp
   title.cpp
+  コンパイル中...
   tutorial.cpp
   useful.cpp
   Xmodel.cpp
   コード生成しています。
   Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
   コード生成が終了しました。
-  Team.vcxproj -> C:\Users\student\Desktop\HGS_2024\HGSAutumn\Project_HGS\Team.exe
+  Team.vcxproj -> C:\Users\student\Desktop\HGS_Autumn\HGSAutumn\Project_HGS\Team.exe

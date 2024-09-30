@@ -114,6 +114,7 @@ private:
 	static CObjmeshDome* m_pMeshDomeUp;				//メッシュドーム
 	static CObjmeshField* m_pMeshField;				//メッシュフィールド
 	static CCubeBlock* m_pCubeBlock;				//キューブブロック
+	static CObject2D* m_pBg;						//ゲーム画面の背景
 	static bool m_Wireframe;						//ワイヤーフレームのオンオフ
 	static bool m_Slow;								//スロー演出のオンオフ
 
