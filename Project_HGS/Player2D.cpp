@@ -14,7 +14,7 @@ namespace
 {
 	D3DXVECTOR2 Size		 = D3DXVECTOR2(30.0f, 40.0f);//プレイヤーの大きさ
 	float move_player		= 3.0f; //プレイヤーの移動速度
-	float jump_player		= 3.0f; //プレイヤーのジャンプ強度		
+	float jump_player		= 5.0f; //プレイヤーのジャンプ強度		
 	float gravity			= 0.1f;	//重力
 	D3DXVECTOR3 move_space	= D3DXVECTOR3(250.0f, 250.0f, 0.0f);//中心からの移動範囲
 	D3DXVECTOR3 pos_max		= SCREEN_CENTER + move_space;

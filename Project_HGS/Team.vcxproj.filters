@@ -336,6 +336,9 @@
     <ClCompile Include="blockmanager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="objectAnim2d.cpp">
+      <Filter>ソース ファイル\03_Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="title.h">
@@ -586,6 +589,9 @@
     </ClInclude>
     <ClInclude Include="blockmanager.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="objectAnim2d.h">
+      <Filter>ヘッダー ファイル\03_Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
   <ProjectOutputs>
@@ -9,16 +8,4 @@
   <ContentFiles />
   <SatelliteDlls />
   <NonRecipeFileRefs />
-=======
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project>
-  <ProjectOutputs>
-    <ProjectOutput>
-      <FullPath>C:\個人\チーム制作まとめ\ハッカソン\HGSAutumn\Project_HGS\Debug\Team.exe</FullPath>
-    </ProjectOutput>
-  </ProjectOutputs>
-  <ContentFiles />
-  <SatelliteDlls />
-  <NonRecipeFileRefs />
->>>>>>> cc154532a971de2f019a5e885b822f75b2707938
 </Project>
