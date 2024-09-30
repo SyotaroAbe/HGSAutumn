@@ -9,7 +9,7 @@
 #include "manager.h"
 #include "blockmanager.h"
 #include "input.h"
-
+#include "game.h"
 //マクロ定義
 namespace
 {
@@ -124,10 +124,17 @@ void CPlayer2D::Update(void)
 	m_Move.y += gravity;
 	if (pos.y > pos_max.y)
 	{
-		//ブロックの判定が完成するまでひとまず下辺を床とする
-		pos.y = pos_max.y;
-		m_Move.y = 0.0f;
-		m_bLanding = true;
+		SetDeathFlag(true);
+		CGame::SetGameEnd(true);
+	}
+	else if (pos.y < pos_min.y)
+	{
+		pos.y = pos_min.y;
+		if (m_bLanding)
+		{
+			SetDeathFlag(true);
+			CGame::SetGameEnd(true);
+		}
 	}
 
 	SetPos(pos);

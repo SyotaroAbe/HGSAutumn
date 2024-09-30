@@ -32,6 +32,7 @@ public:
 	void Collision(CPlayer2D* pPlayer2D);
 
 	// æ“¾ˆ—Eİ’èˆ—
+	void SetTutorial(void);
 
 private:
 	void TitleUpdate(void);
@@ -43,7 +44,9 @@ private:
 	std::list<CBlock*> listBlock;
 
 	int m_nBlockCounter;
-	int m_nBlockRandom;
+	int m_nBlockRandom = 1450;
 	int m_nBlockRandomPos;
+	int m_nBlockLevel;
+	int m_nBlockLevelCount;
 };
 #endif

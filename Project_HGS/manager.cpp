@@ -215,17 +215,6 @@ HRESULT CManager::Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 		return E_FAIL;
 	}
 
-	if (m_Fade == nullptr)
-	{
-		//フェードの生成
-		m_Fade = new CFade;
-
-		if (m_Fade != nullptr)
-		{
-			m_Fade->Init(SET_MODE);
-		}
-	}
-
 	if (m_pBlockManager != nullptr)
 	{
 		delete m_pBlockManager;
@@ -241,6 +230,17 @@ HRESULT CManager::Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 		if (m_pBlockManager != nullptr)
 		{
 			m_pBlockManager->Init();
+		}
+	}
+
+	if (m_Fade == nullptr)
+	{
+		//フェードの生成
+		m_Fade = new CFade;
+
+		if (m_Fade != nullptr)
+		{
+			m_Fade->Init(SET_MODE);
 		}
 	}
 

@@ -99,8 +99,11 @@ HRESULT CGamePause::Init(void)
 		}
 	}
 
-
-
+	pNoise = CObjectAnim2D::Create(SCREEN_CENTER, 5, 21,5*21, true, 60, 5);
+	pNoise->SetHeight(SCREEN_HEIGHT);
+	pNoise->SetWidth(SCREEN_WIDTH);
+	pNoise->SetTexture("data\\TEXTURE\\HGS\\noise.jpg");
+	pNoise->SetAddDraw(true);
 	m_MoveRot = 0.04f;
 	m_MarkRot = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 
@@ -127,7 +130,7 @@ void CGamePause::Update(void)
 
 	if (m_Appear == true)
 	{
-		
+		pNoise->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 0.5f));
 		for (int nCnt = 0; nCnt < MAX_GAMEFG; nCnt++)
 		{
 			m_pPauseFG[nCnt]->SetAppear(true);
@@ -135,14 +138,15 @@ void CGamePause::Update(void)
 	
 		if (!m_bColor)
 		{
-			m_pPauseFG[0]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 0.8f));
+			m_pPauseFG[0]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 0.5f));
 			//m_pPauseFG[1]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 		}
 		m_bColor = true;
 	}
 	else
 	{
-	
+		pNoise->SetCurrent(0);
+		pNoise->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 0.0f));
 		for (int nCnt = 0; nCnt < MAX_GAMEFG; nCnt++)
 		{
 			m_pPauseFG[nCnt]->SetAppear(false);

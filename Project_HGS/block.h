@@ -48,8 +48,12 @@ public:
 
 	static CBlockBase* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
 
-	HRESULT Init(void) { SetTexture("data\\TEXTURE\\0_1.png");
-							return CBlock::Init(); };
+	HRESULT Init(void)
+	{
+		CBlock::Init();
+		SetTexture("data\\TEXTURE\\0_1.png");
+		return S_OK;
+	};
 	void Uninit(void) { CBlock::Uninit(); };
 	void Update(void) { CBlock::Update(); };
 	void Draw(void) { CBlock::Draw(); };
@@ -72,8 +76,12 @@ public:
 
 	static CBlockSpike* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
 
-	HRESULT Init(void) { SetTexture("data\\TEXTURE\\0_1.png"); 
-							return CBlock::Init(); };
+	HRESULT Init(void) 
+	{
+		CBlock::Init();
+		SetTexture("data\\TEXTURE\\0_1.png");
+		return S_OK;
+	};
 	void Uninit(void) { CBlock::Uninit(); };
 	void Update(void) { CBlock::Update(); };
 	void Draw(void) { CBlock::Draw(); };
@@ -96,8 +104,12 @@ public:
 
 	static CBlockCoin* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
 
-	HRESULT Init(void) { SetTexture("data\\TEXTURE\\0_1.png"); 
-							return CBlock::Init(); };
+	HRESULT Init(void) 
+	{
+		CBlock::Init();
+		SetTexture("data\\TEXTURE\\0_1.png");
+		return S_OK;
+	};
 	void Uninit(void) { CBlock::Uninit(); };
 	void Update(void) { CBlock::Update(); };
 	void Draw(void) { CBlock::Draw(); };
@@ -120,8 +132,12 @@ public:
 
 	static CBlockSpring* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
 
-	HRESULT Init(void) { SetTexture("data\\TEXTURE\\0_1.png"); 
-							return CBlock::Init(); };
+	HRESULT Init(void) 
+	{
+		CBlock::Init();
+		SetTexture("data\\TEXTURE\\0_1.png");
+		return S_OK;
+	};
 	void Uninit(void) { CBlock::Uninit(); };
 	void Update(void) { CBlock::Update(); };
 	void Draw(void) { CBlock::Draw(); };
@@ -144,8 +160,12 @@ public:
 
 	static CBlockBroken* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
 
-	HRESULT Init(void) { SetTexture("data\\TEXTURE\\0_1.png"); 
-							return CBlock::Init(); };
+	HRESULT Init(void)
+	{
+		CBlock::Init();
+		SetTexture("data\\TEXTURE\\0_1.png");
+		return S_OK;
+	};
 	void Uninit(void) { CBlock::Uninit(); };
 	void Update(void) { CBlock::Update(); };
 	void Draw(void) { CBlock::Draw(); };
@@ -156,5 +176,61 @@ public:
 
 private:
 	int m_nLife = 15;
+};
+
+// タイトルクラス
+class CBlockTitle : public CBlock
+{
+public:
+
+	CBlockTitle(int nPriority = 6) {};
+	~CBlockTitle() {};
+
+	static CBlockTitle* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
+
+	HRESULT Init(void)
+	{
+		CBlock::Init();
+		SetTexture("data\\TEXTURE\\0_1.png");
+		return S_OK;
+	};
+	void Uninit(void) { CBlock::Uninit(); };
+	void Update(void) { CBlock::Update(); };
+	void Draw(void) { CBlock::Draw(); };
+
+	void Collision(CPlayer2D* pPlayer2D);
+
+	// 取得処理・設定処理
+
+private:
+
+};
+
+// チュートリアルクラス
+class CBlockTutorial : public CBlock
+{
+public:
+
+	CBlockTutorial(int nPriority = 6) {};
+	~CBlockTutorial() {};
+
+	static CBlockTutorial* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
+
+	HRESULT Init(void) 
+	{
+		CBlock::Init();
+		SetTexture("data\\TEXTURE\\0_1.png");
+		return S_OK;
+	};
+	void Uninit(void) { CBlock::Uninit(); };
+	void Update(void) { CBlock::Update(); };
+	void Draw(void) { CBlock::Draw(); };
+
+	void Collision(CPlayer2D* pPlayer2D);
+
+	// 取得処理・設定処理
+
+private:
+
 };
 #endif
