@@ -100,23 +100,15 @@ void CBlockManager::GameUpdate(void)
 {
 	if (!CManager::GetInstance()->GetPause())
 	{
-		m_nBlockCounter++;
-
-		if (m_nBlockCounter > 300)
-		{
-			CBlock* pBlock = CBlockBase::Create(D3DXVECTOR3(640.0f, 800.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 250.0f, 50.0f);
-			listBlock.push_back(pBlock);
-
-			m_nBlockCounter = 0;
-		}
-
+		SetStage();
+		
 		// 各ブロックの更新
 		for (auto itrBlock : listBlock)
 		{
 			// まだ破棄されていないなら更新
 			if (itrBlock->GetDeathFlag() != true)
 			{
-				itrBlock->Update();
+				//itrBlock->Update();
 			}
 		}
 
@@ -162,5 +154,33 @@ void CBlockManager::Collision(CPlayer2D* pPlayer2D)
 		{
 			itrBlock->Collision(pPlayer2D);
 		}
+	}
+}
+
+//====================================================================
+// ステージの配置処理
+//====================================================================
+void  CBlockManager::SetStage(void)
+{
+	m_nBlockCounter++;
+
+	if (m_nBlockCounter > m_nBlockRandom)
+	{
+		int blockPosX = (rand() & 3) - 1;
+		while (1)
+		{
+			blockPosX = (rand() & 3) - 1;
+
+			if (m_nBlockRandomPos != blockPosX)
+				break;
+		}
+		m_nBlockRandomPos = blockPosX;
+
+		int blockWight = (rand() & 3);
+		CBlock* pBlock = CBlockBase::Create(D3DXVECTOR3(640.0f + ((float)blockPosX * 200.0f), 800.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 200.0f + (100.0f *(float)blockWight), 50.0f);
+		listBlock.push_back(pBlock);
+
+		m_nBlockRandom = (rand() & 100) + 150;
+		m_nBlockCounter = 0;
 	}
 }

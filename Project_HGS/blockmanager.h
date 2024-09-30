@@ -37,10 +37,13 @@ private:
 	void TitleUpdate(void);
 	void GameUpdate(void);
 	void TutorialUpdate(void);
+	void SetStage(void);
 
 	static CBlockManager* pBlockManager;
 	std::list<CBlock*> listBlock;
 
 	int m_nBlockCounter;
+	int m_nBlockRandom;
+	int m_nBlockRandomPos;
 };
 #endif

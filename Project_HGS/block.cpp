@@ -158,7 +158,7 @@ void CBlockBase::Collision(CPlayer2D* pPlayer2D)
 	float blockHeight = GetHeight() * 0.5f;
 	float blockWidth = GetWidth() * 0.5f;
 
-	D3DXVECTOR3 move = playerPos;
+	D3DXVECTOR3 posDef = playerPos;
 
 	// 上下判定
 	if ((playerPos.x + playerWidth > blockPos.x - blockWidth &&
@@ -169,7 +169,7 @@ void CBlockBase::Collision(CPlayer2D* pPlayer2D)
 		if (playerPos.y + playerHeight > blockPos.y - blockHeight &&
 			playerPos.y + playerHeight < blockPos.y + blockHeight)
 		{
-			move.y = blockPos.y - blockHeight - playerHeight + blockMove.y;
+			posDef.y = blockPos.y - blockHeight - playerHeight + blockMove.y;
 			playerMove.y = 0.0f;
 			playerLanding = true;
 		}
@@ -177,7 +177,8 @@ void CBlockBase::Collision(CPlayer2D* pPlayer2D)
 		if (playerPos.y - playerHeight > blockPos.y - blockHeight &&
 			playerPos.y - playerHeight < blockPos.y + blockHeight)
 		{
-			move.y = blockPos.y + blockHeight + playerHeight;
+			posDef.y = blockPos.y + blockHeight + playerHeight;
+			playerMove.y = 0.0f;
 		}
 	}
 
@@ -191,8 +192,8 @@ void CBlockBase::Collision(CPlayer2D* pPlayer2D)
 			playerPos.x + playerWidth < blockPos.x + blockWidth &&
 			playerPosOld.x + playerWidth < blockPos.x - blockWidth)
 		{
-			move.x = blockPos.x - playerWidth - blockWidth;
-			move.y = playerPos.y;
+			posDef.x = blockPos.x - playerWidth - blockWidth;
+			posDef.y = playerPos.y;
 			playerMove.x *= -1.0f;
 		}
 
@@ -200,13 +201,13 @@ void CBlockBase::Collision(CPlayer2D* pPlayer2D)
 			playerPos.x - playerWidth < blockPos.x + blockWidth &&
 			playerPosOld.x - playerWidth > blockPos.x + blockWidth)
 		{
-			move.x = blockPos.x + playerWidth + blockWidth;
-			move.y = playerPos.y;
+			posDef.x = blockPos.x + playerWidth + blockWidth;
+			posDef.y = playerPos.y;
 			playerMove.x *= -1.0f;
 		}
 	}
 
-	playerPos = move;
+	playerPos = posDef;
 
 	pPlayer2D->SetPos(playerPos);
 	pPlayer2D->SetMove(playerMove);
@@ -252,23 +253,92 @@ void CBlockSpike::Collision(CPlayer2D* pPlayer2D)
 {
 	// プレイヤー側変数
 	D3DXVECTOR3 playerPos = pPlayer2D->GetPos();
-	float playerHeight = pPlayer2D->GetHeight();
-	float playerWidth = pPlayer2D->GetWidth();
+	float playerHeight = pPlayer2D->GetHeight() * 0.5f;
+	float playerWidth = pPlayer2D->GetWidth() * 0.5f;
 
 	// ブロック側変数
 	D3DXVECTOR3 blockPos = GetPos();
-	float blockHeight = GetHeight();
-	float blockWidth = GetWidth();
+	float blockHeight = GetHeight() * 0.5f;
+	float blockWidth = GetWidth() * 0.5f;
 
-	if (fabsf((playerPos - blockPos).y) < playerHeight + blockHeight &&
-		fabsf((playerPos - blockPos).x) < playerWidth + blockWidth)
+	// 上下左右で重なっている
+	if (((playerPos.x + playerWidth > blockPos.x - blockWidth &&
+		playerPos.x + playerWidth < blockPos.x + blockWidth) ||
+		(playerPos.x - playerWidth > blockPos.x - blockWidth &&
+			playerPos.x - playerWidth < blockPos.x + blockWidth)) &&
+		((playerPos.y + playerHeight > blockPos.y - blockHeight &&
+			playerPos.y + playerHeight < blockPos.y + blockHeight) ||
+			(playerPos.y - playerHeight > blockPos.y - blockHeight &&
+				playerPos.y - playerHeight < blockPos.y + blockHeight)))
 	{
-		// 棘に当たった時の処理
+			// 棘に当たった時の処理
 	}
 }
 
 //====================================================================
-// 足場ブロック
+// コインブロック
+//====================================================================
+// 生成処理
+//====================================================================
+CBlockCoin* CBlockCoin::Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority)
+{
+	CBlockCoin* pBlock = NULL;
+
+	if (pBlock == NULL)
+	{
+		//オブジェクト2Dの生成
+		pBlock = new CBlockCoin();
+	}
+
+	if (pBlock != NULL)
+	{
+		pBlock->SetPos(pos);
+		pBlock->SetWidth(fWight);
+		pBlock->SetHeight(fHeight);
+		pBlock->SetMove(move);
+
+		//オブジェクトの初期化処理
+		if (FAILED(pBlock->Init()))
+		{//初期化処理が失敗した場合
+			return NULL;
+		}
+	}
+
+	return pBlock;
+}
+
+//====================================================================
+// 当たり判定処理
+//====================================================================
+void CBlockCoin::Collision(CPlayer2D* pPlayer2D)
+{
+	// プレイヤー側変数
+	D3DXVECTOR3 playerPos = pPlayer2D->GetPos();
+	float playerHeight = pPlayer2D->GetHeight() * 0.5f;
+	float playerWidth = pPlayer2D->GetWidth() * 0.5f;
+
+	// ブロック側変数
+	D3DXVECTOR3 blockPos = GetPos();
+	float blockHeight = GetHeight() * 0.5f;
+	float blockWidth = GetWidth() * 0.5f;
+
+	// 上下左右で重なっている
+	if (((playerPos.x + playerWidth > blockPos.x - blockWidth &&
+		playerPos.x + playerWidth < blockPos.x + blockWidth) ||
+		(playerPos.x - playerWidth > blockPos.x - blockWidth &&
+			playerPos.x - playerWidth < blockPos.x + blockWidth)) &&
+		((playerPos.y + playerHeight > blockPos.y - blockHeight &&
+			playerPos.y + playerHeight < blockPos.y + blockHeight) ||
+			(playerPos.y - playerHeight > blockPos.y - blockHeight &&
+				playerPos.y - playerHeight < blockPos.y + blockHeight)))
+	{
+		// コインに当たった時の処理
+		Uninit();
+	}
+}
+
+//====================================================================
+// バネブロック
 //====================================================================
 // 生成処理
 //====================================================================
@@ -319,7 +389,7 @@ void CBlockSpring::Collision(CPlayer2D* pPlayer2D)
 	float blockHeight = GetHeight() * 0.5f;
 	float blockWidth = GetWidth() * 0.5f;
 
-	D3DXVECTOR3 move = playerPos;
+	D3DXVECTOR3 posDef = playerPos;
 
 	// 上下判定
 	if ((playerPos.x + playerWidth > blockPos.x - blockWidth &&
@@ -330,7 +400,7 @@ void CBlockSpring::Collision(CPlayer2D* pPlayer2D)
 		if (playerPos.y + playerHeight > blockPos.y - blockHeight &&
 			playerPos.y + playerHeight < blockPos.y + blockHeight)
 		{
-			move.y = blockPos.y - blockHeight - playerHeight + blockMove.y;
+			posDef.y = blockPos.y - blockHeight - playerHeight + blockMove.y;
 			playerMove.y = -10.0f;
 			playerLanding = true;
 		}
@@ -338,7 +408,8 @@ void CBlockSpring::Collision(CPlayer2D* pPlayer2D)
 		if (playerPos.y - playerHeight > blockPos.y - blockHeight &&
 			playerPos.y - playerHeight < blockPos.y + blockHeight)
 		{
-			move.y = blockPos.y + blockHeight + playerHeight;
+			posDef.y = blockPos.y + blockHeight + playerHeight;
+			playerMove.y = 0.0f;
 		}
 	}
 
@@ -352,8 +423,8 @@ void CBlockSpring::Collision(CPlayer2D* pPlayer2D)
 			playerPos.x + playerWidth < blockPos.x + blockWidth &&
 			playerPosOld.x + playerWidth < blockPos.x - blockWidth)
 		{
-			move.x = blockPos.x - playerWidth - blockWidth;
-			move.y = playerPos.y;
+			posDef.x = blockPos.x - playerWidth - blockWidth;
+			posDef.y = playerPos.y;
 			playerMove.x *= -1.0f;
 		}
 
@@ -361,13 +432,128 @@ void CBlockSpring::Collision(CPlayer2D* pPlayer2D)
 			playerPos.x - playerWidth < blockPos.x + blockWidth &&
 			playerPosOld.x - playerWidth > blockPos.x + blockWidth)
 		{
-			move.x = blockPos.x + playerWidth + blockWidth;
-			move.y = playerPos.y;
+			posDef.x = blockPos.x + playerWidth + blockWidth;
+			posDef.y = playerPos.y;
 			playerMove.x *= -1.0f;
 		}
 	}
 
-	playerPos = move;
+	playerPos = posDef;
+
+	pPlayer2D->SetPos(playerPos);
+	pPlayer2D->SetMove(playerMove);
+	pPlayer2D->SetLanding(playerLanding);
+}
+
+//====================================================================
+// 崩れかけのブロック
+//====================================================================
+// 生成処理
+//====================================================================
+CBlockBroken* CBlockBroken::Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority)
+{
+	CBlockBroken* pBlock = NULL;
+
+	if (pBlock == NULL)
+	{
+		//オブジェクト2Dの生成
+		pBlock = new CBlockBroken();
+	}
+
+	if (pBlock != NULL)
+	{
+		pBlock->SetPos(pos);
+		pBlock->SetWidth(fWight);
+		pBlock->SetHeight(fHeight);
+		pBlock->SetMove(move);
+
+		//オブジェクトの初期化処理
+		if (FAILED(pBlock->Init()))
+		{//初期化処理が失敗した場合
+			return NULL;
+		}
+	}
+
+	return pBlock;
+}
+
+//====================================================================
+// 当たり判定処理
+//====================================================================
+void CBlockBroken::Collision(CPlayer2D* pPlayer2D)
+{
+	// プレイヤー側変数
+	D3DXVECTOR3 playerPos = pPlayer2D->GetPos();
+	D3DXVECTOR3 playerPosOld = pPlayer2D->GetPosOld();
+	D3DXVECTOR3 playerMove = pPlayer2D->GetMove();
+	float playerHeight = pPlayer2D->GetHeight() * 0.5f;
+	float playerWidth = pPlayer2D->GetWidth() * 0.5f;
+	bool playerLanding = pPlayer2D->GetLanding();
+
+	// ブロック側変数
+	D3DXVECTOR3 blockPos = GetPos();
+	D3DXVECTOR3 blockPosOld = GetPosOld();
+	D3DXVECTOR3 blockMove = GetMove();
+	float blockHeight = GetHeight() * 0.5f;
+	float blockWidth = GetWidth() * 0.5f;
+
+	D3DXVECTOR3 posDef = playerPos;
+
+	// 上下判定
+	if ((playerPos.x + playerWidth > blockPos.x - blockWidth &&
+		playerPos.x + playerWidth < blockPos.x + blockWidth) ||
+		(playerPos.x - playerWidth > blockPos.x - blockWidth &&
+			playerPos.x - playerWidth < blockPos.x + blockWidth))
+	{
+		if (playerPos.y + playerHeight > blockPos.y - blockHeight &&
+			playerPos.y + playerHeight < blockPos.y + blockHeight)
+		{
+			posDef.y = blockPos.y - blockHeight - playerHeight + blockMove.y;
+			playerMove.y = 0.0f;
+			m_nLife--;
+			playerLanding = true;
+		}
+
+		if (playerPos.y - playerHeight > blockPos.y - blockHeight &&
+			playerPos.y - playerHeight < blockPos.y + blockHeight)
+		{
+			posDef.y = blockPos.y + blockHeight + playerHeight;
+			playerMove.y = 0.0f;
+		}
+	}
+
+	// 左右判定
+	if ((playerPos.y + playerHeight > blockPos.y - blockHeight &&
+		playerPos.y + playerHeight < blockPos.y + blockHeight) ||
+		(playerPos.y - playerHeight > blockPos.y - blockHeight &&
+			playerPos.y - playerHeight < blockPos.y + blockHeight))
+	{
+		if (playerPos.x + playerWidth > blockPos.x - blockWidth &&
+			playerPos.x + playerWidth < blockPos.x + blockWidth &&
+			playerPosOld.x + playerWidth < blockPos.x - blockWidth)
+		{
+			posDef.x = blockPos.x - playerWidth - blockWidth;
+			posDef.y = playerPos.y;
+			playerMove.x *= -1.0f;
+		}
+
+		if (playerPos.x - playerWidth > blockPos.x - blockWidth &&
+			playerPos.x - playerWidth < blockPos.x + blockWidth &&
+			playerPosOld.x - playerWidth > blockPos.x + blockWidth)
+		{
+			posDef.x = blockPos.x + playerWidth + blockWidth;
+			posDef.y = playerPos.y;
+			playerMove.x *= -1.0f;
+		}
+	}
+
+	playerPos = posDef;
+
+	if (m_nLife < 0)
+	{
+		m_nLife = 0;
+		Uninit();
+	}
 
 	pPlayer2D->SetPos(playerPos);
 	pPlayer2D->SetMove(playerMove);
