@@ -172,6 +172,9 @@ void CPlayer2D::Move(D3DXVECTOR3* pos)
 {
 	float fMove = 5.0f;
 	*pos += m_Move;
+
+	if(m_Move.y > 3.0f)
+		m_bLanding = false;
 }
 
 //====================================================================

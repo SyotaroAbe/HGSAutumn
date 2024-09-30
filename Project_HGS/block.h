@@ -51,7 +51,7 @@ public:
 	HRESULT Init(void)
 	{
 		CBlock::Init();
-		SetTexture("data\\TEXTURE\\0_1.png");
+		SetTexture("data\\TEXTURE\\HGS\\block.png");
 		return S_OK;
 	};
 	void Uninit(void) { CBlock::Uninit(); };
@@ -79,7 +79,7 @@ public:
 	HRESULT Init(void) 
 	{
 		CBlock::Init();
-		SetTexture("data\\TEXTURE\\0_1.png");
+		SetTexture("data\\TEXTURE\\HGS\\gimmick000.png");
 		return S_OK;
 	};
 	void Uninit(void) { CBlock::Uninit(); };
@@ -107,7 +107,7 @@ public:
 	HRESULT Init(void) 
 	{
 		CBlock::Init();
-		SetTexture("data\\TEXTURE\\0_1.png");
+		SetTexture("data\\TEXTURE\\HGS\\coin000.png");
 		return S_OK;
 	};
 	void Uninit(void) { CBlock::Uninit(); };
@@ -135,7 +135,7 @@ public:
 	HRESULT Init(void) 
 	{
 		CBlock::Init();
-		SetTexture("data\\TEXTURE\\0_1.png");
+		SetTexture("data\\TEXTURE\\HGS\\gimmick001.png");
 		return S_OK;
 	};
 	void Uninit(void) { CBlock::Uninit(); };
@@ -163,7 +163,7 @@ public:
 	HRESULT Init(void)
 	{
 		CBlock::Init();
-		SetTexture("data\\TEXTURE\\0_1.png");
+		SetTexture("data\\TEXTURE\\HGS\\gimmick002.png");
 		return S_OK;
 	};
 	void Uninit(void) { CBlock::Uninit(); };
@@ -191,7 +191,7 @@ public:
 	HRESULT Init(void)
 	{
 		CBlock::Init();
-		SetTexture("data\\TEXTURE\\0_1.png");
+		SetTexture("data\\TEXTURE\\HGS\\Pause_logo.png");
 		return S_OK;
 	};
 	void Uninit(void) { CBlock::Uninit(); };
@@ -219,7 +219,7 @@ public:
 	HRESULT Init(void) 
 	{
 		CBlock::Init();
-		SetTexture("data\\TEXTURE\\0_1.png");
+		SetTexture("data\\TEXTURE\\HGS\\tutorial000.png");
 		return S_OK;
 	};
 	void Uninit(void) { CBlock::Uninit(); };

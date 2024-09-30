@@ -197,21 +197,21 @@ void  CBlockManager::SetStage(void)
 //====================================================================
 void  CBlockManager::SetTutorial(void)
 {
-	CBlock* pBlock = CBlockTitle::Create(D3DXVECTOR3(400.0f, 300.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 300.0f, 100.0f);
+	CBlock* pBlock = CBlockTitle::Create(D3DXVECTOR3(900.0f, 200.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 200.0f, 50.0f);
 	listBlock.push_back(pBlock);
 
-	pBlock = CBlockBase::Create(D3DXVECTOR3(700.0f, 400.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 200.0f, 50.0f);
+	pBlock = CBlockTutorial::Create(D3DXVECTOR3(400.0f, 350.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 400.0f, 200.0f);
 	listBlock.push_back(pBlock);
 
 	pBlock = CBlockTutorial::Create(D3DXVECTOR3(940.0f, 650.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 400.0f, 200.0f);
-	pBlock->SetTexture("data\\TEXTURE\\0.png");
+	pBlock->SetTexture("data\\TEXTURE\\HGS\\tutorial002.png");
 	listBlock.push_back(pBlock);
 
 	pBlock = CBlockBase::Create(D3DXVECTOR3(350.0f, 750.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 300.0f, 50.0f);
 	listBlock.push_back(pBlock);
 
 	pBlock = CBlockTutorial::Create(D3DXVECTOR3(740.0f, 1200.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 700.0f, 200.0f);
-	pBlock->SetTexture("data\\TEXTURE\\0.png");
+	pBlock->SetTexture("data\\TEXTURE\\HGS\\tutorial001.png");
 	listBlock.push_back(pBlock);
 
 	pBlock = CBlockBase::Create(D3DXVECTOR3(540.0f, 1400.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 700.0f, 50.0f);
