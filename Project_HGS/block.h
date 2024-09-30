@@ -61,7 +61,7 @@ private:
 
 };
 
-// 足場クラス
+// 棘クラス
 class CBlockSpike : public CBlock
 {
 public:
@@ -70,6 +70,29 @@ public:
 	~CBlockSpike() {};
 
 	static CBlockSpike* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
+
+	HRESULT Init(void) { return CBlock::Init(); };
+	void Uninit(void) { CBlock::Uninit(); };
+	void Update(void) { CBlock::Update(); };
+	void Draw(void) { CBlock::Draw(); };
+
+	void Collision(CPlayer2D* pPlayer2D);
+
+	// 取得処理・設定処理
+
+private:
+
+};
+
+// バネクラス
+class CBlockSpring : public CBlock
+{
+public:
+
+	CBlockSpring(int nPriority = 6) {};
+	~CBlockSpring() {};
+
+	static CBlockSpring* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
 
 	HRESULT Init(void) { return CBlock::Init(); };
 	void Uninit(void) { CBlock::Uninit(); };
