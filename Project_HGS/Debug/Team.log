@@ -1,1 +1,39 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+﻿  Team.vcxproj -> C:\Users\student\Desktop\HGSAutumn\Project_HGS\Debug\Team.exe
+=======
+<<<<<<< HEAD
+﻿  block.cpp
+  2DEffect.obj : MSIL .netmodule または /GL を伴ってコンパイルされたモジュールが見つかりました。/LTCG を使用して再開始してください。リンカーのパフォーマンスを向上させるためには、コマンドラインに /LTCG を追加してください。
+LINK : warning LNK4075: /INCREMENTAL は /LTCG の指定によって無視されます。
+  コード生成しています。
+  コード生成が終了しました。
+  Team.vcxproj -> C:\個人\チーム制作まとめ\ハッカソン\HGSAutumn\Project_HGS\Debug\Team.exe
+=======
+﻿  Team.vcxproj -> C:\Users\student\Desktop\ハッカソン24秋\HGSAutumn\Project_HGS\Debug\Team.exe
+>>>>>>> d8981dbff7b4f60be3baff08e5bd4a6906a792e9
+>>>>>>> e42535b3af9f67b0779be2f2ce562de359a4bae3
+=======
+﻿  object.cpp
+  2DEffect.obj : MSIL .netmodule または /GL を伴ってコンパイルされたモジュールが見つかりました。/LTCG を使用して再開始してください。リンカーのパフォーマンスを向上させるためには、コマンドラインに /LTCG を追加してください。
+LINK : warning LNK4075: /INCREMENTAL は /LTCG の指定によって無視されます。
+  コード生成しています。
+  コード生成が終了しました。
+  Team.vcxproj -> C:\Users\student\Desktop\HGS_2024_\HGSAutumn\Project_HGS\Debug\Team.exe
+>>>>>>> ad7260c8656d71d3a6a8bd37a595462ac1908092
+=======
+﻿  Team.vcxproj -> C:\個人\チーム制作まとめ\ハッカソン\HGSAutumn\Project_HGS\Debug\Team.exe
+=======
+﻿  object.cpp
+  2DEffect.obj : MSIL .netmodule または /GL を伴ってコンパイルされたモジュールが見つかりました。/LTCG を使用して再開始してください。リンカーのパフォーマンスを向上させるためには、コマンドラインに /LTCG を追加してください。
+LINK : warning LNK4075: /INCREMENTAL は /LTCG の指定によって無視されます。
+  コード生成しています。
+  コード生成が終了しました。
+  Team.vcxproj -> C:\Users\student\Desktop\HGS_2024_\HGSAutumn\Project_HGS\Debug\Team.exe
+>>>>>>> b35dc829e6089a3ef5e6094b2ab0fb0592e16e89
+>>>>>>> 3bc612074539657024682a2c56d662a295f21bcc
+=======
 ﻿  Team.vcxproj -> C:\Users\student\Desktop\HGS_Autumn\HGSAutumn\Project_HGS\Debug\Team.exe
+>>>>>>> 3dbb2db5b6434ac70b0407596ca9f24e860c8da1

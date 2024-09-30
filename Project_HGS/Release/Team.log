@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  precompile.cpp
   2DEffect.cpp
   2DUI.cpp
@@ -90,3 +91,10 @@
   Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
   コード生成が終了しました。
   Team.vcxproj -> C:\Users\student\Desktop\HGS_Autumn\HGSAutumn\Project_HGS\Team.exe
+=======
+﻿  object.cpp
+  コード生成しています。
+  Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
+  コード生成が終了しました。
+  Team.vcxproj -> C:\Users\student\Desktop\HGSAutumn\Project_HGS\Team.exe
+>>>>>>> f97de81fc7fe3a2333219d2543c80faa515eecaf
