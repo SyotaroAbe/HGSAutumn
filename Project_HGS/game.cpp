@@ -163,7 +163,7 @@ HRESULT CGame::Init(void)
 	m_pBg->SetWidth(1280.0f);
 	m_pBg->SetHeight(720.0f);
 	m_pBg->SetColor(D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
-
+	m_pBg->Update();
 	m_bGameEnd = false;
 	CManager::GetInstance()->GetInstance()->SetStop(false);
 
@@ -174,11 +174,17 @@ HRESULT CGame::Init(void)
 
 	//ƒvƒŒƒCƒ„[‚Ì¶¬
 	m_pPlayer2D = CPlayer2D::Create();
-	m_pPlayer2D->SetPos(D3DXVECTOR3(100.0f, 100.0f, 0.0f));
-	
-	CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_BGM_GAME);
-	CManager::GetInstance()->GetBlockManager()->SetTutorial();
+	m_pPlayer2D->SetPos(D3DXVECTOR3(500.0f, 100.0f, 0.0f));
+	m_pPlayer2D->Update();
 
+	CManager::GetInstance()->GetBlockManager()->SetTutorial();
+	CObject2D* pFrame = CObject2D::Create();
+
+	pFrame->SetPos(SCREEN_CENTER);
+	pFrame->SetWidth(move_space.x * 2);
+	pFrame->SetHeight(move_space.y * 2);
+	pFrame->SetTexture("data\\TEXTURE\\HGS\\frame.png");
+	pFrame->Update();
 #if _DEBUG
 	if (m_pEdit == nullptr)
 	{

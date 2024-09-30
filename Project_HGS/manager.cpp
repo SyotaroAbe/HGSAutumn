@@ -52,7 +52,7 @@ CManager::CManager()
 	m_bPad = false;
 	m_EndScore = 0;
 	m_bGameClear = false;
-
+	m_bState = false;
 	pManager = nullptr;
 	m_pRenderer = nullptr;
 	m_pDebugProc = nullptr;
@@ -426,7 +426,12 @@ void CManager::Update(void)
 	}
 
 #endif
-
+	if (!m_bState && CScene::GetMode() == CScene::MODE_GAME && (CManager::GetInstance()->GetInputKeyboard()->GetTrigger(DIK_P) == true ||
+		CManager::GetInstance()->GetInputJoyPad()->GetTrigger(CInputJoypad::BUTTON_START, 0) == true))
+	{
+		m_bState = true;
+		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_BGM_GAME);
+	}
 	if ((CManager::GetInstance()->GetInputKeyboard()->GetTrigger(DIK_P) == true ||
 		CManager::GetInstance()->GetInputJoyPad()->GetTrigger(CInputJoypad::BUTTON_START, 0) == true) &&
 		m_PauseOK == true &&
@@ -451,18 +456,23 @@ void CManager::Update(void)
 			break;
 		}
 	}
+	if (!m_bState && CScene::GetMode() == CScene::MODE_GAME)
+	{
+		return;
+	}
+		//シーンの更新処理
+		m_pScene->Update();
 
-	//シーンの更新処理
-	m_pScene->Update();
+		//レンダラーの更新処理
+		m_pRenderer->Update();
 
-	//レンダラーの更新処理
-	m_pRenderer->Update();
+		//フェードの更新処理
+		m_Fade->Update();
 
-	//フェードの更新処理
-	m_Fade->Update();
-
-	//ブロックマネージャーの更新処理
-	m_pBlockManager->Update();
+		//ブロックマネージャーの更新処理
+		m_pBlockManager->Update();
+	
+	
 }
 
 //====================================================================

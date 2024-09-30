@@ -132,7 +132,7 @@ public:
 	D3DXMATRIX GetGamemtxProjection(void) { return m_GamemtxProjection; }
 	void SetTypeInput(TYPE_INPUT type) { m_typeInput = type; }
 	TYPE_INPUT GetTypeInput(void) { return m_typeInput; }
-
+	bool Getstart() { return m_bState; }
 private:
 	static CManager *pManager;
 
@@ -152,6 +152,7 @@ private:
 	bool m_SetJoyPad;					//ジョイパッドで操作しているかどうか
 	bool m_PauseOK;						//ポーズを押しても大丈夫か
 	bool m_bPad;						//ジョイパッドを使用しているかどうか
+	bool m_bState;
 	CRenderer *m_pRenderer;				//レンダラーのポインタ
 	CDebugProc *m_pDebugProc;			//デバッグプロックのポインタ
 	CInputKeyboard *m_pInputKeyboard;	//キーボードのポインタ

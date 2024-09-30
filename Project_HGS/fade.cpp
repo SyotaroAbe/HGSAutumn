@@ -165,9 +165,9 @@ void CFade::Draw(void)
 	m_pDevice->SetTexture(0, NULL);
 
 	//ポリゴンの描画
-	m_pDevice->DrawPrimitive(D3DPT_TRIANGLESTRIP,	//プリミティブの種類
-		0,						//プリミティブ(ポリゴン)数
-		2);
+//	m_pDevice->DrawPrimitive(D3DPT_TRIANGLESTRIP,	//プリミティブの種類
+	//	0,						//プリミティブ(ポリゴン)数
+	//	2);
 }
 
 //====================================================================
