@@ -1,8 +1,4 @@
-﻿  2DEffect.cpp
-  game.cpp
-  number.cpp
-  player.cpp
-  LevelModelEffect.cpp
+﻿  player.cpp
      ライブラリ C:\Users\student\Desktop\HGS_Autumn_2024\HGSAutumn\Project_HGS\Team.lib とオブジェクト C:\Users\student\Desktop\HGS_Autumn_2024\HGSAutumn\Project_HGS\Team.exp を作成中
   コード生成しています。
   Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
