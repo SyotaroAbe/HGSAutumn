@@ -49,7 +49,6 @@ CSound::SOUNDINFO CSound::m_aSoundInfo[SOUND_LABEL_MAX] =
 	{ "data/SE/Box_break.wav", 0 },				// –Ø” ‚ª‰ó‚ê‚½‰¹
 	{ "data/SE/Bow.wav", 0 },					// ‹|‚ğŒ‚‚Á‚½‰¹
 	{ "data/SE/Battle_Entry.wav", 0 },			// í“¬“Ë“ü‰¹
-	{ "data/SE/pause.wav", 0 },					// ƒ|[ƒY‰¹
 };
 
 //=============================================================================
