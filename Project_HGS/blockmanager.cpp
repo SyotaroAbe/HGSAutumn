@@ -82,6 +82,8 @@ void CBlockManager::Update(void)
 		break;
 
 	case CScene::MODE_RESULT:
+		listBlock.clear();
+		m_nBlockRandom = 1450;
 		break;
 	}
 }
@@ -112,18 +114,18 @@ void CBlockManager::GameUpdate(void)
 				//itrBlock->Update();
 			}
 		}
-
-		// 各ブロックが破棄予定ならリストから消去
-		std::list<CBlock*>  listBlockDef = listBlock;
-		for (auto itrBlock : listBlock)
-		{
-			if (itrBlock->GetDeathFlag())
-			{
-				listBlockDef.remove(itrBlock);
-			}
-		}
-		listBlock = listBlockDef;
 	}
+
+	// 各ブロックが破棄予定ならリストから消去
+	std::list<CBlock*>  listBlockDef = listBlock;
+	for (auto itrBlock : listBlock)
+	{
+		if (itrBlock->GetDeathFlag())
+		{
+			listBlockDef.remove(itrBlock);
+		}
+	}
+	listBlock = listBlockDef;
 }
 
 //====================================================================
