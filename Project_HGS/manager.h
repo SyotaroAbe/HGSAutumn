@@ -133,6 +133,7 @@ public:
 	void SetTypeInput(TYPE_INPUT type) { m_typeInput = type; }
 	TYPE_INPUT GetTypeInput(void) { return m_typeInput; }
 	bool Getstart() { return m_bState; }
+	void SetState(bool b) { m_bState = b; }
 private:
 	static CManager *pManager;
 

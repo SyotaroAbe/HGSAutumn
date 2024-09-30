@@ -178,7 +178,7 @@ HRESULT CGame::Init(void)
 	m_pPlayer2D->Update();
 
 	CManager::GetInstance()->GetBlockManager()->SetTutorial();
-	CObject2D* pFrame = CObject2D::Create();
+	CObject2D* pFrame = CObject2D::Create(4);
 
 	pFrame->SetPos(SCREEN_CENTER);
 	pFrame->SetWidth(move_space.x * 2);
