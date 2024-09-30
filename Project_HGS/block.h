@@ -48,7 +48,8 @@ public:
 
 	static CBlockBase* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
 
-	HRESULT Init(void) { return CBlock::Init(); };
+	HRESULT Init(void) { SetTexture("data\\TEXTURE\\0_1.png");
+							return CBlock::Init(); };
 	void Uninit(void) { CBlock::Uninit(); };
 	void Update(void) { CBlock::Update(); };
 	void Draw(void) { CBlock::Draw(); };
@@ -71,7 +72,32 @@ public:
 
 	static CBlockSpike* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
 
-	HRESULT Init(void) { return CBlock::Init(); };
+	HRESULT Init(void) { SetTexture("data\\TEXTURE\\0_1.png"); 
+							return CBlock::Init(); };
+	void Uninit(void) { CBlock::Uninit(); };
+	void Update(void) { CBlock::Update(); };
+	void Draw(void) { CBlock::Draw(); };
+
+	void Collision(CPlayer2D* pPlayer2D);
+
+	// 取得処理・設定処理
+
+private:
+
+};
+
+// コインクラス
+class CBlockCoin : public CBlock
+{
+public:
+
+	CBlockCoin(int nPriority = 6) {};
+	~CBlockCoin() {};
+
+	static CBlockCoin* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
+
+	HRESULT Init(void) { SetTexture("data\\TEXTURE\\0_1.png"); 
+							return CBlock::Init(); };
 	void Uninit(void) { CBlock::Uninit(); };
 	void Update(void) { CBlock::Update(); };
 	void Draw(void) { CBlock::Draw(); };
@@ -94,7 +120,8 @@ public:
 
 	static CBlockSpring* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
 
-	HRESULT Init(void) { return CBlock::Init(); };
+	HRESULT Init(void) { SetTexture("data\\TEXTURE\\0_1.png"); 
+							return CBlock::Init(); };
 	void Uninit(void) { CBlock::Uninit(); };
 	void Update(void) { CBlock::Update(); };
 	void Draw(void) { CBlock::Draw(); };
@@ -105,5 +132,29 @@ public:
 
 private:
 
+};
+
+// 崩れかけクラス
+class CBlockBroken : public CBlock
+{
+public:
+
+	CBlockBroken(int nPriority = 6) {};
+	~CBlockBroken() {};
+
+	static CBlockBroken* Create(D3DXVECTOR3 pos, D3DXVECTOR3 move, float fWight, float fHeight, int nPriority = 6);
+
+	HRESULT Init(void) { SetTexture("data\\TEXTURE\\0_1.png"); 
+							return CBlock::Init(); };
+	void Uninit(void) { CBlock::Uninit(); };
+	void Update(void) { CBlock::Update(); };
+	void Draw(void) { CBlock::Draw(); };
+
+	void Collision(CPlayer2D* pPlayer2D);
+
+	// 取得処理・設定処理
+
+private:
+	int m_nLife = 15;
 };
 #endif
