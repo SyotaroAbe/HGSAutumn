@@ -258,9 +258,6 @@
     <ClCompile Include="tutorial.cpp">
       <Filter>ソース ファイル\02_Mode</Filter>
     </ClCompile>
-    <ClCompile Include="sign.cpp">
-      <Filter>ソース ファイル\10_Ultimate</Filter>
-    </ClCompile>
     <ClCompile Include="logo.cpp">
       <Filter>ソース ファイル\02_Mode</Filter>
     </ClCompile>
@@ -505,9 +502,6 @@
     </ClInclude>
     <ClInclude Include="tutorial.h">
       <Filter>ヘッダー ファイル\02_Mode</Filter>
-    </ClInclude>
-    <ClInclude Include="sign.h">
-      <Filter>ヘッダー ファイル\10_Ultimate</Filter>
     </ClInclude>
     <ClInclude Include="logo.h">
       <Filter>ヘッダー ファイル\02_Mode</Filter>

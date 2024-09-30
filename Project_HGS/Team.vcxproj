@@ -246,7 +246,6 @@
     <ClCompile Include="SampleObjX.cpp" />
     <ClCompile Include="score.cpp" />
     <ClCompile Include="shrinkingBillboard.cpp" />
-    <ClCompile Include="sign.cpp" />
     <ClCompile Include="skinmesh.cpp" />
     <ClCompile Include="slowManager.cpp" />
     <ClCompile Include="smoke_screen.cpp" />
@@ -330,7 +329,6 @@
     <ClInclude Include="SampleObjX.h" />
     <ClInclude Include="score.h" />
     <ClInclude Include="shrinkingBillboard.h" />
-    <ClInclude Include="sign.h" />
     <ClInclude Include="skinmesh.h" />
     <ClInclude Include="slowManager.h" />
     <ClInclude Include="smoke_screen.h" />

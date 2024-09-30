@@ -1,2 +1,3 @@
 C:\Users\student\Desktop\NINGA_GAME\Wow\Project01\Debug\Team.exe
 C:\Users\student\Documents\Visual Studio 2019\Project\Project_HGS\Debug\Team.exe
+C:\Users\student\Desktop\HGS_Autumn_2024\HGSAutumn\Project_HGS\Debug\Team.exe
