@@ -156,7 +156,7 @@ HRESULT CGame::Init(void)
 	}
 
 	//”wŒi
-	m_pBg = CObject2D::Create();
+	m_pBg = CObject2D::Create(0);
 	m_pBg->SetPos(D3DXVECTOR3(640.0f, 360.0f, 0.0f));
 	m_pBg->SetWidth(1280.0f);
 	m_pBg->SetHeight(720.0f);

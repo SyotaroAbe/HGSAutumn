@@ -22,8 +22,8 @@ namespace
 	const char* END_SET_OK("ENDSETSTAGE");	//エンドメッセージがあるかどうかの確認
 	const float SCORE_POSX(300.0f);
 	const float SCORE_MOVEX(20.1f);
-	const D3DXVECTOR3 SCORE_TEX_POS(D3DXVECTOR3(248.0f * 0.5f + 30.0f, 240.0f, 0.0f));		//評価点の位置
-	const D3DXVECTOR3 SCORE_VALUE_POS(D3DXVECTOR3(SCORE_TEX_POS.x + 150.0f, SCORE_TEX_POS.y, 0.0f));		//評価点の値の位置
+	const D3DXVECTOR3 SCORE_TEX_POS(D3DXVECTOR3(350.0f, 350.0f, 0.0f));		//評価点の位置
+	const D3DXVECTOR3 SCORE_VALUE_POS(D3DXVECTOR3(SCORE_TEX_POS.x - 105.0f, SCORE_TEX_POS.y + 120.0f, 0.0f));		//評価点の値の位置
 	const float SCORE_DISTANCE(25.0f);
 }
 
@@ -70,23 +70,7 @@ HRESULT CResult::Init(void)
 	m_pBg->SetPos(D3DXVECTOR3(640.0f, 360.0f, 0.0f));
 	m_pBg->SetWidth(1280.0f);
 	m_pBg->SetHeight(720.0f);
-	m_pBg->SetTexture("data\\TEXTURE\\ResultBg.png");
-
-	//成功or失敗
-	m_ClearText = CObject2D::Create();
-	m_ClearText->SetPos(D3DXVECTOR3(SCREEN_WIDTH * 0.25f, 80.0f, 0.0f));
-	m_ClearText->SetWidth(SCREEN_WIDTH * 0.5f);
-	m_ClearText->SetHeight(SCREEN_HEIGHT* 0.25f);
-	if (CManager::GetInstance()->GetGameClear() == true)
-	{
-		m_pBg->SetColor(D3DXCOLOR(0.9f, 0.9f, 0.9f, 1.0f));
-		m_ClearText->SetTexture("data\\TEXTURE\\result\\result_success.png");
-	}
-	else
-	{
-		m_pBg->SetColor(D3DXCOLOR(0.3f, 0.3f, 0.3f, 1.0f));
-		m_ClearText->SetTexture("data\\TEXTURE\\result\\result_fail.png");
-	}
+	m_pBg->SetColor(D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
 
 	//今回のスコア
 	for (int nCntObject = 0; nCntObject < 6; nCntObject++)
@@ -109,16 +93,16 @@ HRESULT CResult::Init(void)
 	//"評価点"っていうテクスチャポリゴン
 	m_pScoreTex = CObject2D::Create();
 	m_pScoreTex->SetPos(SCORE_TEX_POS);
-	m_pScoreTex->SetWidth(248.0f);
+	m_pScoreTex->SetWidth(200.0f);
 	m_pScoreTex->SetHeight(80.0f);
-	m_pScoreTex->SetTexture("data\\TEXTURE\\result\\result_score.png");
+	//m_pScoreTex->SetTexture("data\\TEXTURE\\result\\result_score.png");
 
 	//全体ランキング(「ランキング」)
 	CObject2D *m_pRank = CObject2D::Create();
-	m_pRank->SetPos(D3DXVECTOR3(SCREEN_WIDTH * 0.75f, SCREEN_HEIGHT * 0.125f, 0.0f));
+	m_pRank->SetPos(D3DXVECTOR3(SCREEN_WIDTH * 0.75f, SCREEN_HEIGHT * 0.185f, 0.0f));
 	m_pRank->SetWidth(240.0f);
 	m_pRank->SetHeight(120.0f);
-	m_pRank->SetTexture("data\\TEXTURE\\result\\ranking.png");
+	//m_pRank->SetTexture("data\\TEXTURE\\result\\ranking.png");
 
 	//全体ランキング(スコア)
 	m_pLifeRanking = CRanking::Create("data\\TXT\\LifeRanking.txt");
