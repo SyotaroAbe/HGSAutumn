@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  Team.vcxproj -> C:\Users\student\Desktop\HGSAutumn\Project_HGS\Debug\Team.exe
 =======
 <<<<<<< HEAD
@@ -12,3 +13,11 @@ LINK : warning LNK4075: /INCREMENTAL は /LTCG の指定によって無視され
 ﻿  Team.vcxproj -> C:\Users\student\Desktop\ハッカソン24秋\HGSAutumn\Project_HGS\Debug\Team.exe
 >>>>>>> d8981dbff7b4f60be3baff08e5bd4a6906a792e9
 >>>>>>> e42535b3af9f67b0779be2f2ce562de359a4bae3
+=======
+﻿  object.cpp
+  2DEffect.obj : MSIL .netmodule または /GL を伴ってコンパイルされたモジュールが見つかりました。/LTCG を使用して再開始してください。リンカーのパフォーマンスを向上させるためには、コマンドラインに /LTCG を追加してください。
+LINK : warning LNK4075: /INCREMENTAL は /LTCG の指定によって無視されます。
+  コード生成しています。
+  コード生成が終了しました。
+  Team.vcxproj -> C:\Users\student\Desktop\HGS_2024_\HGSAutumn\Project_HGS\Debug\Team.exe
+>>>>>>> ad7260c8656d71d3a6a8bd37a595462ac1908092

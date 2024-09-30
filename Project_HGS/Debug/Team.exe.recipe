@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
       <FullPath>C:\Users\student\Desktop\HGSAutumn\Project_HGS\Debug\Team.exe</FullPath>
+=======
+      <FullPath>C:\Users\student\Desktop\HGS_2024_\HGSAutumn\Project_HGS\Debug\Team.exe</FullPath>
+>>>>>>> ad7260c8656d71d3a6a8bd37a595462ac1908092
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

@@ -9,6 +9,7 @@
 #include "Player2D.h"
 #include "renderer.h"
 #include "manager.h"
+#include "game.h"
 
 // マクロ定義
 
@@ -97,36 +98,39 @@ void CBlockManager::TitleUpdate(void)
 //====================================================================
 void CBlockManager::GameUpdate(void)
 {
-	m_nBlockCounter++;
-
-	if (m_nBlockCounter > 300)
+	if (!CManager::GetInstance()->GetPause())
 	{
-		CBlock* pBlock = CBlockBase::Create(D3DXVECTOR3(640.0f, 800.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 250.0f, 50.0f);
-		listBlock.push_back(pBlock);
+		m_nBlockCounter++;
 
-		m_nBlockCounter = 0;
-	}
-
-	// 各ブロックの更新
-	for (auto itrBlock : listBlock)
-	{
-		// まだ破棄されていないなら更新
-		if (itrBlock->GetDeathFlag() != true)
+		if (m_nBlockCounter > 300)
 		{
-			itrBlock->Update();
-		}
-	}
+			CBlock* pBlock = CBlockBase::Create(D3DXVECTOR3(640.0f, 800.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 250.0f, 50.0f);
+			listBlock.push_back(pBlock);
 
-	// 各ブロックが破棄予定ならリストから消去
-	std::list<CBlock*>  listBlockDef = listBlock;
-	for (auto itrBlock : listBlock)
-	{
-		if (itrBlock->GetDeathFlag())
-		{
-			listBlockDef.remove(itrBlock);
+			m_nBlockCounter = 0;
 		}
+
+		// 各ブロックの更新
+		for (auto itrBlock : listBlock)
+		{
+			// まだ破棄されていないなら更新
+			if (itrBlock->GetDeathFlag() != true)
+			{
+				itrBlock->Update();
+			}
+		}
+
+		// 各ブロックが破棄予定ならリストから消去
+		std::list<CBlock*>  listBlockDef = listBlock;
+		for (auto itrBlock : listBlock)
+		{
+			if (itrBlock->GetDeathFlag())
+			{
+				listBlockDef.remove(itrBlock);
+			}
+		}
+		listBlock = listBlockDef;
 	}
-	listBlock = listBlockDef;
 }
 
 //====================================================================
