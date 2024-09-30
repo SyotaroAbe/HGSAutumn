@@ -50,6 +50,7 @@ CBlockManager* CBlockManager::GetInstance()
 //====================================================================
 HRESULT CBlockManager::Init(void)
 {
+	listBlock.clear();
 	return S_OK;
 }
 
@@ -162,25 +163,61 @@ void CBlockManager::Collision(CPlayer2D* pPlayer2D)
 //====================================================================
 void  CBlockManager::SetStage(void)
 {
-	m_nBlockCounter++;
-
-	if (m_nBlockCounter > m_nBlockRandom)
+	bool bGameStart = false;
+	if (!bGameStart)
 	{
-		int blockPosX = (rand() & 3) - 1;
-		while (1)
+		m_nBlockCounter++;
+
+		if (m_nBlockCounter > m_nBlockRandom)
 		{
-			blockPosX = (rand() & 3) - 1;
+			int blockPosX = 0;
+			while (1)
+			{
+				blockPosX = (int)(rand() % 3) - 1;
 
-			if (m_nBlockRandomPos != blockPosX)
-				break;
+				if (m_nBlockRandomPos != blockPosX)
+					break;
+			}
+			m_nBlockRandomPos = blockPosX;
+
+			int blockWight = (rand() % 3);
+			CBlock* pBlock = CBlockBase::Create(D3DXVECTOR3(640.0f + ((float)blockPosX * 200.0f), 800.0f, 0.0f), D3DXVECTOR3(0.0f, -2.5f, 0.0f), 100.0f + (100.0f * (float)blockWight), 50.0f);
+			listBlock.push_back(pBlock);
+
+			m_nBlockRandom = 60; // 頻度
+			m_nBlockCounter = 0;
 		}
-		m_nBlockRandomPos = blockPosX;
-
-		int blockWight = (rand() & 3);
-		CBlock* pBlock = CBlockBase::Create(D3DXVECTOR3(640.0f + ((float)blockPosX * 200.0f), 800.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 200.0f + (100.0f *(float)blockWight), 50.0f);
-		listBlock.push_back(pBlock);
-
-		m_nBlockRandom = (rand() & 100) + 150;
-		m_nBlockCounter = 0;
 	}
+}
+
+//====================================================================
+// チュートリアルステージの配置処理
+//====================================================================
+void  CBlockManager::SetTutorial(void)
+{
+	CBlock* pBlock = CBlockTitle::Create(D3DXVECTOR3(400.0f, 300.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 300.0f, 100.0f);
+	listBlock.push_back(pBlock);
+
+	pBlock = CBlockBase::Create(D3DXVECTOR3(700.0f, 400.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 200.0f, 50.0f);
+	listBlock.push_back(pBlock);
+
+	pBlock = CBlockTutorial::Create(D3DXVECTOR3(940.0f, 650.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 400.0f, 200.0f);
+	pBlock->SetTexture("data\\TEXTURE\\0.png");
+	listBlock.push_back(pBlock);
+
+	pBlock = CBlockBase::Create(D3DXVECTOR3(350.0f, 750.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 300.0f, 50.0f);
+	listBlock.push_back(pBlock);
+
+	pBlock = CBlockTutorial::Create(D3DXVECTOR3(740.0f, 1200.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 700.0f, 200.0f);
+	pBlock->SetTexture("data\\TEXTURE\\0.png");
+	listBlock.push_back(pBlock);
+
+	pBlock = CBlockBase::Create(D3DXVECTOR3(540.0f, 1400.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 700.0f, 50.0f);
+	listBlock.push_back(pBlock);
+
+	pBlock = CBlockBase::Create(D3DXVECTOR3(740.0f, 1500.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 700.0f, 50.0f);
+	listBlock.push_back(pBlock);
+
+	pBlock = CBlockBase::Create(D3DXVECTOR3(540.0f, 1600.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 700.0f, 50.0f);
+	listBlock.push_back(pBlock);
 }
