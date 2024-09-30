@@ -14,17 +14,7 @@
 #include "sound.h"
 #include "texture.h"
 //マクロ定義
-namespace
-{
-	D3DXVECTOR2 Size		 = D3DXVECTOR2(30.0f, 40.0f);//プレイヤーの大きさ
-	float move_player		= 3.0f; //プレイヤーの移動速度
-	float jump_player		= 5.0f; //プレイヤーのジャンプ強度		
-	float gravity			= 0.1f;	//重力
 
-	D3DXVECTOR3 move_space	= D3DXVECTOR3(300.0f, 300.0f, 0.0f);//中心からの移動範囲
-	D3DXVECTOR3 pos_max		= SCREEN_CENTER + move_space;
-	D3DXVECTOR3 pos_min		= SCREEN_CENTER - move_space;
-}
 //====================================================================
 //コンストラクタ
 //====================================================================
@@ -80,12 +70,7 @@ HRESULT CPlayer2D::Init(void)
 
 	//新しくcppを作成した時は新しいTYPEを列挙に追加して指定すること
 	SetType(CObject::TYPE_PLAYER2D);
-	 CObject2D * pFrame = CObject2D::Create();
 
-	 pFrame->SetPos(SCREEN_CENTER);
-	 pFrame->SetWidth(move_space.x * 2);
-	 pFrame->SetHeight(move_space.y * 2);
-	 pFrame->SetTexture("data\\TEXTURE\\HGS\\frame.png");
 	 CManager::GetInstance()->GetTexture()->Regist("data\\TEXTURE\\HGS\\die.png");
 	m_Move.x = move_player;
 	return S_OK;

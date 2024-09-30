@@ -9,7 +9,17 @@
 
 #include "main.h"
 #include "object2D.h"
+namespace
+{
+	D3DXVECTOR2 Size = D3DXVECTOR2(30.0f, 40.0f);//プレイヤーの大きさ
+	float move_player = 3.0f; //プレイヤーの移動速度
+	float jump_player = 5.0f; //プレイヤーのジャンプ強度		
+	float gravity = 0.1f;	//重力
 
+	D3DXVECTOR3 move_space = D3DXVECTOR3(300.0f, 300.0f, 0.0f);//中心からの移動範囲
+	D3DXVECTOR3 pos_max = SCREEN_CENTER + move_space;
+	D3DXVECTOR3 pos_min = SCREEN_CENTER - move_space;
+}
 //オブジェクトプレイヤークラス
 class CPlayer2D : public CObject2D
 {
