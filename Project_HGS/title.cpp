@@ -169,7 +169,7 @@ void CTitle::Select(void)
 		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_ENTER_PUSH);
 
 		// ƒQ[ƒ€‘JˆÚ
-		CFade::SetFade(CScene::MODE_TUTORIAL);
+		CFade::SetFade(CScene::MODE_GAME);
 	}
 	else if (CManager::GetInstance()->GetInputJoyPad()->GetTrigger(CInputJoypad::BUTTON_A, 0) == true)
 	{
@@ -177,6 +177,6 @@ void CTitle::Select(void)
 		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_ENTER_PUSH);
 
 		// ƒQ[ƒ€‘JˆÚ
-		CFade::SetFade(CScene::MODE_TUTORIAL);
+		CFade::SetFade(CScene::MODE_GAME);
 	}
 }

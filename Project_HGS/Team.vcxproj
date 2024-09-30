@@ -192,7 +192,6 @@
     <ClCompile Include="enemyAshigaru.cpp" />
     <ClCompile Include="fade.cpp" />
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="hid.cpp" />
     <ClCompile Include="inputManager.cpp" />
     <ClCompile Include="logo.cpp" />
     <ClCompile Include="MoveHelpUI.cpp" />
@@ -278,7 +277,6 @@
     <ClInclude Include="enemyAshigaru.h" />
     <ClInclude Include="fade.h" />
     <ClInclude Include="game.h" />
-    <ClInclude Include="hidapi.h" />
     <ClInclude Include="inputManager.h" />
     <ClInclude Include="logo.h" />
     <ClInclude Include="MoveHelpUI.h" />

@@ -297,9 +297,6 @@
     <ClCompile Include="debris.cpp">
       <Filter>ソース ファイル\04_Direction</Filter>
     </ClCompile>
-    <ClCompile Include="hid.cpp">
-      <Filter>ソース ファイル\01_System</Filter>
-    </ClCompile>
     <ClCompile Include="MapModel.cpp">
       <Filter>ソース ファイル\07_Map</Filter>
     </ClCompile>
@@ -538,9 +535,6 @@
     </ClInclude>
     <ClInclude Include="debris.h">
       <Filter>ヘッダー ファイル\04_Direction</Filter>
-    </ClInclude>
-    <ClInclude Include="hidapi.h">
-      <Filter>ヘッダー ファイル\01_System</Filter>
     </ClInclude>
     <ClInclude Include="MapModel.h">
       <Filter>ヘッダー ファイル\07_Map</Filter>
