@@ -10,8 +10,8 @@
 #include "time.h"
 
 //マクロ定義
-#define CLASS_NAME "手裏斬"				//ウインドウクラスの名前
-#define WINDOW_NAME "　～手裏斬～　"	//ウインドウの名前(キャプションに表示)
+#define CLASS_NAME "Pause."				//ウインドウクラスの名前
+#define WINDOW_NAME "　Pause.　"	//ウインドウの名前(キャプションに表示)
 
 //プロトタイプ宣言
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);

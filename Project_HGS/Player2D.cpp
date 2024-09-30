@@ -11,6 +11,7 @@
 #include "input.h"
 #include "game.h"
 #include "objectAnim2d.h"
+#include "sound.h"
 #include "texture.h"
 //ƒ}ƒNƒ’è‹`
 namespace
@@ -162,6 +163,7 @@ void CPlayer2D::Death(void)
 	pDead->SetHeight(500.0f);
 	pDead->SetWidth(500.0f);
 	pDead->SetTexture("data\\TEXTURE\\HGS\\die.png");
+	CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_BOSS_BULLET);
 }
 //====================================================================
 //ˆÚ“®ˆ—
@@ -183,5 +185,6 @@ void CPlayer2D::Jump()
 	{
 		m_bLanding = false;
 		m_Move.y = -jump_player;
+		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_DAMAGE_PLAYER);
 	}
 }
