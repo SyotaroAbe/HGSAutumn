@@ -191,6 +191,7 @@ void CBlockBase::Collision(CPlayer2D* pPlayer2D)
 		{
 			posDef.x = blockPos.x - playerWidth - blockWidth;
 			posDef.y = playerPos.y;
+			playerLanding = false;
 			playerMove.x *= -1.0f;
 		}
 
@@ -200,6 +201,7 @@ void CBlockBase::Collision(CPlayer2D* pPlayer2D)
 		{
 			posDef.x = blockPos.x + playerWidth + blockWidth;
 			posDef.y = playerPos.y;
+			playerLanding = false;
 			playerMove.x *= -1.0f;
 		}
 	}
@@ -268,7 +270,8 @@ void CBlockSpike::Collision(CPlayer2D* pPlayer2D)
 			(playerPos.y - playerHeight > blockPos.y - blockHeight &&
 				playerPos.y - playerHeight < blockPos.y + blockHeight)))
 	{
-			// ž™‚É“–‚½‚Á‚½Žž‚Ìˆ—
+		// ž™‚É“–‚½‚Á‚½Žž‚Ìˆ—
+		pPlayer2D->Death();
 	}
 }
 
@@ -398,8 +401,9 @@ void CBlockSpring::Collision(CPlayer2D* pPlayer2D)
 			playerPos.y + playerHeight < blockPos.y + blockHeight)
 		{
 			posDef.y = blockPos.y - blockHeight - playerHeight + blockMove.y;
-			playerMove.y = -10.0f;
-			playerLanding = true;
+
+			if (!CManager::GetInstance()->GetPause())
+				playerMove.y = -10.0f;
 		}
 
 		if (playerPos.y - playerHeight > blockPos.y - blockHeight &&
@@ -422,6 +426,7 @@ void CBlockSpring::Collision(CPlayer2D* pPlayer2D)
 		{
 			posDef.x = blockPos.x - playerWidth - blockWidth;
 			posDef.y = playerPos.y;
+			playerLanding = false;
 			playerMove.x *= -1.0f;
 		}
 
@@ -431,6 +436,7 @@ void CBlockSpring::Collision(CPlayer2D* pPlayer2D)
 		{
 			posDef.x = blockPos.x + playerWidth + blockWidth;
 			posDef.y = playerPos.y;
+			playerLanding = false;
 			playerMove.x *= -1.0f;
 		}
 	}
@@ -507,8 +513,10 @@ void CBlockBroken::Collision(CPlayer2D* pPlayer2D)
 		{
 			posDef.y = blockPos.y - blockHeight - playerHeight + blockMove.y;
 			playerMove.y = 0.0f;
-			m_nLife--;
 			playerLanding = true;
+
+			if (!CManager::GetInstance()->GetPause())
+				m_nLife--;
 		}
 
 		if (playerPos.y - playerHeight > blockPos.y - blockHeight &&
@@ -531,6 +539,7 @@ void CBlockBroken::Collision(CPlayer2D* pPlayer2D)
 		{
 			posDef.x = blockPos.x - playerWidth - blockWidth;
 			posDef.y = playerPos.y;
+			playerLanding = false;
 			playerMove.x *= -1.0f;
 		}
 
@@ -540,6 +549,7 @@ void CBlockBroken::Collision(CPlayer2D* pPlayer2D)
 		{
 			posDef.x = blockPos.x + playerWidth + blockWidth;
 			posDef.y = playerPos.y;
+			playerLanding = false;
 			playerMove.x *= -1.0f;
 		}
 	}
