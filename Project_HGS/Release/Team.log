@@ -1,8 +1,6 @@
-﻿  precompile.cpp
-  2DEffect.cpp
+﻿  2DEffect.cpp
   2DUI.cpp
   2DUI_edit.cpp
-  action.cpp
   BowmanArrow.cpp
   debris.cpp
   enemyBowman.cpp
@@ -19,9 +17,11 @@
   enemy.cpp
   enemyAshigaru.cpp
   fade.cpp
-  コンパイル中...
   game.cpp
-  inputManager.cpp
+C:\Users\student\Desktop\HGS_2024\HGSAutumn\Project_HGS\GamePause.h(14,1): warning C4005: 'MAX_FG': マクロが再定義されました。
+C:\Users\student\Desktop\HGS_2024\HGSAutumn\Project_HGS\Pause.h(14): message : 'MAX_FG' の以前の定義を確認してください
+  コンパイル中...
+  GamePause.cpp
   logo.cpp
   MoveHelpUI.cpp
   ParameterUI.cpp
@@ -40,8 +40,8 @@
   motion.cpp
   cursorUI.cpp
   number.cpp
-  コンパイル中...
   numberBillboard.cpp
+  コンパイル中...
   numberFall.cpp
   object.cpp
   object2D.cpp
@@ -61,8 +61,8 @@
   player.cpp
   LevelModelEffect.cpp
   ranking.cpp
-  コンパイル中...
   renderer.cpp
+  コンパイル中...
   result.cpp
   SampleLevelModel.cpp
   SampleObj2D.cpp
@@ -74,7 +74,6 @@
   skinmesh.cpp
   slowManager.cpp
   smoke_screen.cpp
-  sound.cpp
   texture.cpp
   time.cpp
   title.cpp

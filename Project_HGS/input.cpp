@@ -736,8 +736,6 @@ void CInputMouse::Update(void)
 			m_MouseStateTrigger.rgbButtons[nCnt] = (m_MouseState.rgbButtons[nCnt] ^ mouse.rgbButtons[nCnt]) & mouse.rgbButtons[nCnt];
 		}
 
-		SetCursorPos((int)SCREEN_CENTER.x, (int)SCREEN_CENTER.y);
-
 		//“ü—Íî•ñ‚Ì•Û‘¶
 		m_MouseState = mouse;
 	}

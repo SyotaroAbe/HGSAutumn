@@ -64,7 +64,7 @@ HRESULT CPlayer2D::Init(void)
 	//SetTexture("data\\TEXTURE\\Number01.png");
 
 	//V‚µ‚­cpp‚ğì¬‚µ‚½‚ÍV‚µ‚¢TYPE‚ğ—ñ‹“‚É’Ç‰Á‚µ‚Äw’è‚·‚é‚±‚Æ
-	SetType(CObject::TYPE_SAMPLE);
+	SetType(CObject::TYPE_PLAYER2D);
 
 	return S_OK;
 }

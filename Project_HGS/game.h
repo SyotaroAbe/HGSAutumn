@@ -30,6 +30,7 @@ class CScore;
 class CTime;
 class CBoss;
 class CPlayer2D;
+class CGamePause;
 
 class CAim;
 
@@ -50,6 +51,7 @@ public:
 	static CPlayer2D* GetPlayer2D(void) { return m_pPlayer2D; }
 	static CBoss* GetBoss(void) { return m_pBoss; }
 	static CPause* GetPause(void) { return m_pPause; }
+	static CGamePause* GetGamePause(void) { return m_pGamePause; }
 	static CScore* GetScore(void) { return m_pScore; }
 	static CEdit* GetEdit(void) { return m_pEdit; }
 	static CTime* GetTime(void) { return m_pTime; }
@@ -99,6 +101,7 @@ private:
 
 	static CEdit* m_pEdit;							//エディットモードのポインタ
 	static CPause* m_pPause;						//ポーズのポインタ
+	static CGamePause* m_pGamePause;				//ゲーム用ポーズのポインタ
 	static CScore* m_pScore;						//スコアのポインタ
 	static CTime* m_pTime;							//タイムのポインタ
 	static CObject2D* m_p2DSample;					//2Dポリゴンのサンプル
