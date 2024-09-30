@@ -81,6 +81,7 @@ CCubeBlock* CGame::m_pCubeBlock = nullptr;
 CPlayer* CGame::m_pPlayer = nullptr;
 CPlayer2D* CGame::m_pPlayer2D = nullptr;
 CBoss* CGame::m_pBoss = nullptr;
+CObject2D* CGame::m_pBg = nullptr;
 bool CGame::m_bGameEnd = false;
 bool CGame::m_bEvent = false;
 bool CGame::m_bEventEnd = false;
@@ -154,6 +155,13 @@ HRESULT CGame::Init(void)
 		m_pGamePause = CGamePause::Create();
 	}
 
+	//”wŒi
+	m_pBg = CObject2D::Create(0);
+	m_pBg->SetPos(D3DXVECTOR3(640.0f, 360.0f, 0.0f));
+	m_pBg->SetWidth(1280.0f);
+	m_pBg->SetHeight(720.0f);
+	m_pBg->SetTexture("data\\TEXTURE\\GameBG.png");
+
 	m_bGameEnd = false;
 	CManager::GetInstance()->GetInstance()->SetStop(false);
 
@@ -180,8 +188,6 @@ HRESULT CGame::Init(void)
 //====================================================================
 void CGame::Uninit(void)
 {
-	CManager::GetInstance()->SetEndScore(CScore::GetScore());
-
 	// ƒXƒ[î•ñ‚Ì‘Síœ
 	CSlowManager::ReleaseAll();
 
@@ -300,6 +306,8 @@ void CGame::Update(void)
 	if (m_bGameEnd == true)
 	{
 		CFade::SetFade(CScene::MODE_RESULT);
+		m_pTime->SetStopTime(true);
+		CManager::GetInstance()->SetEndScore(m_pTime->GetTimeNumber());
 	}
 }
 

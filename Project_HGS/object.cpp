@@ -110,7 +110,16 @@ void CObject::UpdateAll(void)
 			if ((m_bLevelStop == false && pObject->m_bLevelUI == false) ||
 				(m_bLevelStop == true && pObject->m_bLevelUI == true))
 			{
-				if (pObject->m_Appear == true)
+				if (CManager::GetInstance()->GetPause() == true)
+				{
+					if (pObject->m_type != TYPE_BLOCK &&
+						pObject->m_type != TYPE_TIME)
+					{
+						//更新処理
+						pObject->Update();
+					}
+				}
+				else if (pObject->m_Appear == true)
 				{
 					//更新処理
 					pObject->Update();

@@ -22,9 +22,9 @@
 #define UI_HSIDE (175.0f)
 
 //ê√ìIÉÅÉìÉoïœêîêÈåæ
-CObject2D* CGamePause::m_pPauseUI[MAX_GAMEPAUSE] = {};
+
 CObject2D* CGamePause::m_pPauseFG[MAX_GAMEFG] = {};
-CObject2D* CGamePause::m_pPauseMark = NULL;
+
 bool CGamePause::m_bColor = false;
 
 //====================================================================
@@ -73,7 +73,7 @@ HRESULT CGamePause::Init(void)
 {
 	for (int nCnt = 0; nCnt < MAX_GAMEFG; nCnt++)
 	{
-		m_pPauseFG[nCnt] = CObject2D::Create(7);
+		m_pPauseFG[nCnt] = CObject2D::Create(4);
 		m_pPauseFG[nCnt]->SetType(CObject::TYPE_TUTORIALUI);
 
 		switch (nCnt)
@@ -82,7 +82,8 @@ HRESULT CGamePause::Init(void)
 			m_pPauseFG[nCnt]->SetPos(D3DXVECTOR3(640.0f, 360.0f, 0.0f));
 			m_pPauseFG[nCnt]->SetWidth(1280.0f);
 			m_pPauseFG[nCnt]->SetHeight(720.0f);
-			m_pPauseFG[nCnt]->SetColor(D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f));
+			m_pPauseFG[nCnt]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+			m_pPauseFG[nCnt]->SetTexture("data\\TEXTURE\\HGS\\pause_1.png");
 			break;
 
 		case 1:
@@ -98,41 +99,7 @@ HRESULT CGamePause::Init(void)
 		}
 	}
 
-	for (int nCnt = 0; nCnt < MAX_GAMEPAUSE; nCnt++)
-	{
-		m_pPauseUI[nCnt] = CObject2D::Create(7);
-		m_pPauseUI[nCnt]->SetType(CObject::TYPE_TUTORIALUI);
-		switch (nCnt)
-		{
-		case 0:
-			m_pPauseUI[nCnt]->SetWidth(UI_WIGHT);
-			m_pPauseUI[nCnt]->SetHeight(UI_HEIGHT);
-			break;
-		case 1:
-			m_pPauseUI[nCnt]->SetWidth(UI_WIGHT);
-			m_pPauseUI[nCnt]->SetHeight(UI_HEIGHT);
-			break;
-		case 2:
-			m_pPauseUI[nCnt]->SetWidth(UI_WIGHT);
-			m_pPauseUI[nCnt]->SetHeight(UI_HEIGHT);
-			break;
-		}
-		m_pPauseUI[nCnt]->SetPos(D3DXVECTOR3(UI_POS.x, UI_POS.y + nCnt * UI_HSIDE, UI_POS.z));
-		m_pPauseUI[nCnt]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 0.5f));
 
-		m_InitPos[nCnt] = m_pPauseUI[nCnt]->GetPos();
-	}
-	m_pPauseUI[0]->SetTexture("data\\TEXTURE\\pause\\pause_00.png");
-	m_pPauseUI[1]->SetTexture("data\\TEXTURE\\pause\\pause_01.png");
-	m_pPauseUI[2]->SetTexture("data\\TEXTURE\\pause\\pause_02.png");
-
-	m_pPauseMark = CObject2D::Create(7);
-	m_pPauseMark->SetType(CObject::TYPE_TUTORIALUI);
-	m_pPauseMark->SetWidth(140.0f);
-	m_pPauseMark->SetHeight(140.0f);
-	m_pPauseMark->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
-	m_pPauseMark->SetPos(INITVECTOR3);
-	m_pPauseMark->SetTexture("data\\TEXTURE\\pause\\shuriken00.png");
 
 	m_MoveRot = 0.04f;
 	m_MarkRot = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
@@ -157,64 +124,34 @@ void CGamePause::Update(void)
 	CInputKeyboard* pInputKeyboard = CManager::GetInstance()->GetInputKeyboard();
 	CInputJoypad* pInputJoypad = CManager::GetInstance()->GetInputJoyPad();
 
-	if (CManager::GetInstance()->GetPause() == true)
-	{
-		for (int nCnt = 0; nCnt < MAX_GAMEPAUSE; nCnt++)
-		{
-			if (nCnt == m_PauseSelect)
-			{
-				m_pPauseUI[nCnt]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
-				m_pPauseUI[nCnt]->SetWidth(700.0f);
-				m_pPauseUI[nCnt]->SetHeight(200.0f);
-
-				m_pPauseMark->SetPos(D3DXVECTOR3(m_InitPos[nCnt].x - 410.0f, m_InitPos[nCnt].y - 57.0f, m_InitPos[nCnt].z));
-			}
-			else
-			{
-				m_pPauseUI[nCnt]->SetColor(D3DXCOLOR(0.6f, 0.6f, 0.6f, 0.75f));
-				m_pPauseUI[nCnt]->SetWidth(UI_WIGHT);
-				m_pPauseUI[nCnt]->SetHeight(UI_HEIGHT);
-
-				m_pPauseUI[nCnt]->SetPos(D3DXVECTOR3(m_InitPos[nCnt].x, m_InitPos[nCnt].y, m_InitPos[nCnt].z));
-			}
-		}
-	}
 
 	if (m_Appear == true)
 	{
-		for (int nCnt = 0; nCnt < MAX_GAMEPAUSE; nCnt++)
-		{
-			m_pPauseUI[nCnt]->SetAppear(true);
-		}
+		
 		for (int nCnt = 0; nCnt < MAX_GAMEFG; nCnt++)
 		{
 			m_pPauseFG[nCnt]->SetAppear(true);
 		}
-		m_pPauseMark->SetAppear(true);
-
+	
 		if (!m_bColor)
 		{
-			m_pPauseFG[0]->SetColor(D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.8f));
-			m_pPauseFG[1]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+			m_pPauseFG[0]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 0.8f));
+			//m_pPauseFG[1]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 		}
 		m_bColor = true;
 	}
 	else
 	{
-		for (int nCnt = 0; nCnt < MAX_GAMEPAUSE; nCnt++)
-		{
-			m_pPauseUI[nCnt]->SetAppear(false);
-		}
+	
 		for (int nCnt = 0; nCnt < MAX_GAMEFG; nCnt++)
 		{
 			m_pPauseFG[nCnt]->SetAppear(false);
 		}
-		m_pPauseMark->SetAppear(false);
-
+		
 		if (m_bColor)
 		{
-			m_pPauseFG[0]->SetColor(D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f));
-			m_pPauseFG[1]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 0.0f));
+			m_pPauseFG[0]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+			//m_pPauseFG[1]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 0.0f));
 		}
 		m_bColor = false;
 	}
