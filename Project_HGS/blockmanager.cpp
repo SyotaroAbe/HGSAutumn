@@ -197,10 +197,10 @@ void  CBlockManager::SetStage(void)
 //====================================================================
 void  CBlockManager::SetTutorial(void)
 {
-	CBlock* pBlock = CBlockTitle::Create(D3DXVECTOR3(900.0f, 200.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 200.0f, 50.0f);
+	CBlock* pBlock = CBlockTitle::Create(D3DXVECTOR3(350.0f, 350.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 400.0f, 200.0f);
 	listBlock.push_back(pBlock);
 
-	pBlock = CBlockTutorial::Create(D3DXVECTOR3(400.0f, 350.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 400.0f, 200.0f);
+	pBlock = CBlockTutorial::Create(D3DXVECTOR3(900.0f, 250.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 300.0f, 150.0f);
 	listBlock.push_back(pBlock);
 
 	pBlock = CBlockTutorial::Create(D3DXVECTOR3(940.0f, 650.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 400.0f, 200.0f);
