@@ -18,7 +18,7 @@ class CBlock : public CObject2D
 {
 public:
 
-	CBlock(int nPriority = 6);
+	CBlock(int nPriority = 5);
 	~CBlock();
 
 	virtual HRESULT Init(void);

@@ -431,6 +431,9 @@ void CManager::Update(void)
 	{
 		m_bState = true;
 		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_BGM_GAME);
+
+		CGame::GetTime()->SetStartTime(timeGetTime());
+		CGame::GetTime()->SetTime(0);
 	}
 	if ((CManager::GetInstance()->GetInputKeyboard()->GetTrigger(DIK_P) == true ||
 		CManager::GetInstance()->GetInputJoyPad()->GetTrigger(CInputJoypad::BUTTON_START, 0) == true) &&

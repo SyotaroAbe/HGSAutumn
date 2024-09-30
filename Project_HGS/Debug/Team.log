@@ -1,1 +1,9 @@
-﻿  Team.vcxproj -> C:\Users\student\Desktop\HGSAutumn\Project_HGS\Debug\Team.exe
+﻿  Player2D.cpp
+  blockmanager.cpp
+  game.cpp
+  manager.cpp
+  2DEffect.obj : MSIL .netmodule または /GL を伴ってコンパイルされたモジュールが見つかりました。/LTCG を使用して再開始してください。リンカーのパフォーマンスを向上させるためには、コマンドラインに /LTCG を追加してください。
+LINK : warning LNK4075: /INCREMENTAL は /LTCG の指定によって無視されます。
+  コード生成しています。
+  コード生成が終了しました。
+  Team.vcxproj -> C:\Users\student\Desktop\HGS_00\HGSAutumn\Project_HGS\Debug\Team.exe

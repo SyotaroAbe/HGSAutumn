@@ -1,1 +1,19 @@
+<<<<<<< HEAD
 ﻿  Team.vcxproj -> C:\Users\student\Desktop\HGSAutumn\Project_HGS\Team.exe
+=======
+<<<<<<< HEAD
+﻿  Team.vcxproj -> C:\Users\student\Desktop\HGSAutumn\Project_HGS\Team.exe
+=======
+﻿  2DEffect.cpp
+  blockmanager.cpp
+  game.cpp
+  Player2D.cpp
+  manager.cpp
+  model.cpp
+  SampleObjX.cpp
+  コード生成しています。
+  Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
+  コード生成が終了しました。
+  Team.vcxproj -> C:\Users\student\Desktop\HGS_00\HGSAutumn\Project_HGS\Team.exe
+>>>>>>> a2e737bcb2f37d2813be616993b42bfcb804f8b8
+>>>>>>> d7cb2d0b2ebcf54385ae73480ba7f53687cc3c0c

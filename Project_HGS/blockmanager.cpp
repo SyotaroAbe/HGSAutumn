@@ -167,8 +167,7 @@ void CBlockManager::Collision(CPlayer2D* pPlayer2D)
 //====================================================================
 void  CBlockManager::SetStage(void)
 {
-	bool bGameStart = false;
-	if (!bGameStart)
+	if (!CManager::GetInstance()->GetStop())
 	{
 		m_nBlockCounter++;
 
@@ -380,8 +379,5 @@ void  CBlockManager::SetTutorial(void)
 	listBlock.push_back(pBlock);
 
 	pBlock = CBlockBase::Create(D3DXVECTOR3(740.0f, 1500.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 700.0f, 50.0f);
-	listBlock.push_back(pBlock);
-
-	pBlock = CBlockBase::Create(D3DXVECTOR3(540.0f, 1600.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 700.0f, 50.0f);
 	listBlock.push_back(pBlock);
 }
