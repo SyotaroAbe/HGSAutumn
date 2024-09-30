@@ -167,8 +167,7 @@ void CBlockManager::Collision(CPlayer2D* pPlayer2D)
 //====================================================================
 void  CBlockManager::SetStage(void)
 {
-	bool bGameStart = false;
-	if (!bGameStart)
+	if (!CManager::GetInstance()->GetStop())
 	{
 		m_nBlockCounter++;
 
