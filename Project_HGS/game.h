@@ -29,6 +29,7 @@ class CPause;
 class CScore;
 class CTime;
 class CBoss;
+class CPlayer2D;
 
 class CAim;
 
@@ -46,14 +47,15 @@ public:
 
 	static int GetFloor(void) { return m_nFloor; }
 	static CPlayer* GetPlayer(void) { return m_pPlayer; }
-	static CBoss*GetBoss(void) { return m_pBoss; }
-	static CPause *GetPause(void) { return m_pPause; }
-	static CScore *GetScore(void) { return m_pScore; }
-	static CEdit *GetEdit(void) { return m_pEdit; }
+	static CPlayer2D* GetPlayer2D(void) { return m_pPlayer2D; }
+	static CBoss* GetBoss(void) { return m_pBoss; }
+	static CPause* GetPause(void) { return m_pPause; }
+	static CScore* GetScore(void) { return m_pScore; }
+	static CEdit* GetEdit(void) { return m_pEdit; }
 	static CTime* GetTime(void) { return m_pTime; }
 	static CObjmeshDome* GetDomeUp(void) { return m_pMeshDomeUp; }
-	static void SetCubeBlock(CCubeBlock *pBlock) { m_pCubeBlock = pBlock; }
-	static CCubeBlock*GetCubeBlock(void) { return m_pCubeBlock; }
+	static void SetCubeBlock(CCubeBlock* pBlock) { m_pCubeBlock = pBlock; }
+	static CCubeBlock* GetCubeBlock(void) { return m_pCubeBlock; }
 	static void SetEvent(bool Set) { m_bEvent = Set; }
 	static bool GetEvent(void) { return m_bEvent; }
 	static bool GetEventEnd(void) { return m_bEventEnd; }
@@ -93,13 +95,12 @@ private:
 	static float m_BGColorA;						//ゲーム背景の不透明度
 	static D3DXVECTOR3 m_BGRot;						//背景の回転向き
 
-	static CPlayer *m_pPlayer;						//プレイヤーのポインタ
 	static CBoss* m_pBoss;							//ボス
 
-	static CEdit *m_pEdit;							//エディットモードのポインタ
-	static CPause *m_pPause;						//ポーズのポインタ
-	static CScore *m_pScore;						//スコアのポインタ
-	static CTime *m_pTime;							//タイムのポインタ
+	static CEdit* m_pEdit;							//エディットモードのポインタ
+	static CPause* m_pPause;						//ポーズのポインタ
+	static CScore* m_pScore;						//スコアのポインタ
+	static CTime* m_pTime;							//タイムのポインタ
 	static CObject2D* m_p2DSample;					//2Dポリゴンのサンプル
 	static CObject3D* m_p3DSample;					//3Dポリゴンのサンプル
 	static CObjectBillboard* m_pBillboardSample;	//Billboardポリゴンのサンプル
@@ -112,6 +113,9 @@ private:
 	static CCubeBlock* m_pCubeBlock;				//キューブブロック
 	static bool m_Wireframe;						//ワイヤーフレームのオンオフ
 	static bool m_Slow;								//スロー演出のオンオフ
+
+	static CPlayer* m_pPlayer;						//プレイヤーのポインタ
+	static CPlayer2D* m_pPlayer2D;					//プレイヤーのポインタ
 
 	static CAim* m_pAim;							// 照準
 };

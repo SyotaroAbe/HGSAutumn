@@ -196,6 +196,7 @@
     <ClCompile Include="logo.cpp" />
     <ClCompile Include="MoveHelpUI.cpp" />
     <ClCompile Include="ParameterUI.cpp" />
+    <ClCompile Include="Player2D.cpp" />
     <ClCompile Include="screenCover2D.cpp" />
     <ClCompile Include="scrollOpen.cpp" />
     <ClCompile Include="MiniMapCamera.cpp" />
@@ -281,6 +282,7 @@
     <ClInclude Include="logo.h" />
     <ClInclude Include="MoveHelpUI.h" />
     <ClInclude Include="ParameterUI.h" />
+    <ClInclude Include="Player2D.h" />
     <ClInclude Include="screenCover2D.h" />
     <ClInclude Include="scrollOpen.h" />
     <ClInclude Include="MiniMapCamera.h" />

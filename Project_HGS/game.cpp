@@ -55,16 +55,18 @@
 
 #include "objectBillboard.h"
 
+#include "Player2D.h"
+
 namespace
 {
 	const int SAMPLE_NAMESPACE = 0;
 }
 
 //静的メンバ変数宣言
-CEdit *CGame::m_pEdit = nullptr;
-CPause *CGame::m_pPause = nullptr;
-CScore *CGame::m_pScore = nullptr;
-CTime *CGame::m_pTime = nullptr;
+CEdit* CGame::m_pEdit = nullptr;
+CPause* CGame::m_pPause = nullptr;
+CScore* CGame::m_pScore = nullptr;
+CTime* CGame::m_pTime = nullptr;
 CObject2D* CGame::m_p2DSample = nullptr;
 CObject3D* CGame::m_p3DSample = nullptr;
 CObjectBillboard* CGame::m_pBillboardSample = nullptr;
@@ -76,7 +78,8 @@ CObjmeshDome* CGame::m_pMeshDomeUp = nullptr;
 CObjmeshField* CGame::m_pMeshField = nullptr;
 CCubeBlock* CGame::m_pCubeBlock = nullptr;
 CPlayer* CGame::m_pPlayer = nullptr;
-CBoss*CGame::m_pBoss = nullptr;
+CPlayer2D* CGame::m_pPlayer2D = nullptr;
+CBoss* CGame::m_pBoss = nullptr;
 bool CGame::m_bGameEnd = false;
 bool CGame::m_bEvent = false;
 bool CGame::m_bEventEnd = false;
@@ -153,6 +156,9 @@ HRESULT CGame::Init(void)
 
 	// スコアの生成
 	m_pScore = CScore::Create();
+
+	m_pPlayer2D = CPlayer2D::Create();
+	m_pPlayer2D->SetPos(D3DXVECTOR3(100.0f, 100.0f, 0.0f));
 
 	//CScrollOpen::Create();
 
@@ -441,7 +447,7 @@ void CGame::Sample(void)
 
 	//CObjmeshCylinder* pObjCylinder = CObjmeshCylinder::Create();
 	//pObjCylinder->SetPos(D3DXVECTOR3(600.0f, 0.0f, 0.0f));
-	
+
 	////各オブジェクトの子クラスの生成-----------------------------------------
 	//m_p2DSample = CSampleObj2D::Create(7);
 	//m_p2DSample->SetPos(D3DXVECTOR3(640.0f, 360.0f, 0.0f));
@@ -449,19 +455,19 @@ void CGame::Sample(void)
 	//m_p2DSample->SetHeight(720.0f);
 	//m_p2DSample->SetColor(D3DXCOLOR(0.0f, 0.0f, 1.0f, 0.5f));
 	//m_p2DSample->SetMultiTarget(true);
-	
+
 	//CSampleObj3D* pSampleObj3D = CSampleObj3D::Create();
 	//pSampleObj3D->SetPos(D3DXVECTOR3(-100.0f, 0.0f, 0.0f));
-	
+
 	//CSampleObjBillboard* pSampleObjBillboard = CSampleObjBillboard::Create();
 	//pSampleObjBillboard->SetPos(D3DXVECTOR3(-200.0f, 0.0f, 0.0f));
-	
+
 	//CSampleObjectX* pSampleObjX = CSampleObjectX::Create("data\\MODEL\\enemy.x");
 	//pSampleObjX->SetPos(D3DXVECTOR3(-300.0f, 0.0f, 0.0f));
-	
+
 	//CEnemy* pEnemy = CEnemy::Create();
 	//pEnemy->SetPos(D3DXVECTOR3(-500.0f, 0.0f, 0.0f));
-	
+
 	//CSampleLvModel* pSampleLvModel = CSampleLvModel::Create();
 	//pSampleLvModel->SetPos(D3DXVECTOR3(-400.0f, 0.0f, 0.0f));
 }
