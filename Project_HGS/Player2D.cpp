@@ -150,7 +150,7 @@ void CPlayer2D::Death(void)
 	pDead->SetWidth(500.0f);
 	pDead->SetTexture("data\\TEXTURE\\HGS\\die.png");
 	CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_BOSS_BULLET);
-	CManager::GetInstance()->SetState(true);
+	CManager::GetInstance()->SetState(false);
 }
 //====================================================================
 //ˆÚ“®ˆ—
