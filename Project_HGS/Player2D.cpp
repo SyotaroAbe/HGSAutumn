@@ -34,7 +34,6 @@ CPlayer2D::CPlayer2D(int nPriority) : CObject2D(nPriority)
 	SetHeight(Size.y);
 	m_Move = INITVECTOR3;
 	m_nSample = 0;
-	m_bRight = true;
 	m_bLanding = false;
 }
 
@@ -79,7 +78,7 @@ HRESULT CPlayer2D::Init(void)
 	//SetTexture("data\\TEXTURE\\Number01.png");
 
 	//新しくcppを作成した時は新しいTYPEを列挙に追加して指定すること
-	SetType(CObject::TYPE_SAMPLE);
+	SetType(CObject::TYPE_PLAYER2D);
 
 	m_Move.x = move_player;
 	return S_OK;
@@ -147,7 +146,6 @@ void CPlayer2D::Move(D3DXVECTOR3* pos)
 	*pos += m_Move;
 }
 
-	if (m_bRight)
 //====================================================================
 //ジャンプ処理
 //====================================================================
@@ -157,12 +155,7 @@ void CPlayer2D::Jump()
 	CInputJoypad* pInputPad = CManager::GetInstance()->GetInputJoyPad();
 	if (m_bLanding &&(pInputKey->GetTrigger(DIK_SPACE) || pInputPad->GetTrigger(CInputJoypad::BUTTON_A,0)))
 	{
-		pos->x += fMove;
 		m_bLanding = false;
 		m_Move.y = -jump_player;
-	}
-	else
-	{
-		pos->x -= fMove;
 	}
 }

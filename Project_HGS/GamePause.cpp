@@ -22,8 +22,8 @@
 #define UI_HSIDE (175.0f)
 
 //ê√ìIÉÅÉìÉoïœêîêÈåæ
-CObject2D* CGamePause::m_pPauseUI[MAX_PAUSE] = {};
-CObject2D* CGamePause::m_pPauseFG[MAX_FG] = {};
+CObject2D* CGamePause::m_pPauseUI[MAX_GAMEPAUSE] = {};
+CObject2D* CGamePause::m_pPauseFG[MAX_GAMEFG] = {};
 CObject2D* CGamePause::m_pPauseMark = NULL;
 bool CGamePause::m_bColor = false;
 
@@ -71,7 +71,7 @@ CGamePause* CGamePause::Create()
 //====================================================================
 HRESULT CGamePause::Init(void)
 {
-	for (int nCnt = 0; nCnt < MAX_FG; nCnt++)
+	for (int nCnt = 0; nCnt < MAX_GAMEFG; nCnt++)
 	{
 		m_pPauseFG[nCnt] = CObject2D::Create(7);
 		m_pPauseFG[nCnt]->SetType(CObject::TYPE_TUTORIALUI);
@@ -98,7 +98,7 @@ HRESULT CGamePause::Init(void)
 		}
 	}
 
-	for (int nCnt = 0; nCnt < MAX_PAUSE; nCnt++)
+	for (int nCnt = 0; nCnt < MAX_GAMEPAUSE; nCnt++)
 	{
 		m_pPauseUI[nCnt] = CObject2D::Create(7);
 		m_pPauseUI[nCnt]->SetType(CObject::TYPE_TUTORIALUI);
@@ -159,7 +159,7 @@ void CGamePause::Update(void)
 
 	if (CManager::GetInstance()->GetPause() == true)
 	{
-		for (int nCnt = 0; nCnt < MAX_PAUSE; nCnt++)
+		for (int nCnt = 0; nCnt < MAX_GAMEPAUSE; nCnt++)
 		{
 			if (nCnt == m_PauseSelect)
 			{
@@ -182,11 +182,11 @@ void CGamePause::Update(void)
 
 	if (m_Appear == true)
 	{
-		for (int nCnt = 0; nCnt < MAX_PAUSE; nCnt++)
+		for (int nCnt = 0; nCnt < MAX_GAMEPAUSE; nCnt++)
 		{
 			m_pPauseUI[nCnt]->SetAppear(true);
 		}
-		for (int nCnt = 0; nCnt < MAX_FG; nCnt++)
+		for (int nCnt = 0; nCnt < MAX_GAMEFG; nCnt++)
 		{
 			m_pPauseFG[nCnt]->SetAppear(true);
 		}
@@ -201,11 +201,11 @@ void CGamePause::Update(void)
 	}
 	else
 	{
-		for (int nCnt = 0; nCnt < MAX_PAUSE; nCnt++)
+		for (int nCnt = 0; nCnt < MAX_GAMEPAUSE; nCnt++)
 		{
 			m_pPauseUI[nCnt]->SetAppear(false);
 		}
-		for (int nCnt = 0; nCnt < MAX_FG; nCnt++)
+		for (int nCnt = 0; nCnt < MAX_GAMEFG; nCnt++)
 		{
 			m_pPauseFG[nCnt]->SetAppear(false);
 		}

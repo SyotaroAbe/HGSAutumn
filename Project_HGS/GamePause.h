@@ -10,8 +10,8 @@
 #include "main.h"
 
 //マクロ定義
-#define MAX_PAUSE (3)
-#define MAX_FG (2)
+#define MAX_GAMEPAUSE (3)
+#define MAX_GAMEFG (2)
 
 //前方宣言
 class CObject2D;
@@ -37,8 +37,8 @@ private:
 	int m_PauseSelect;
 	bool m_Appear;
 	static bool m_bColor;	// 色の変更をするかどうか
-	static CObject2D* m_pPauseUI[MAX_PAUSE];
-	static CObject2D* m_pPauseFG[MAX_FG];
+	static CObject2D* m_pPauseUI[MAX_GAMEPAUSE];
+	static CObject2D* m_pPauseFG[MAX_GAMEFG];
 	static CObject2D* m_pPauseMark;
 
 	float m_MoveRot;
