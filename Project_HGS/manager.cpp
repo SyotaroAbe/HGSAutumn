@@ -24,6 +24,7 @@
 #include "time.h"
 #include "tutorial.h"
 #include "logo.h"
+#include "blockmanager.h"
 
 #ifdef _DEBUG
 #define SET_MODE (CScene::MODE_GAME)
@@ -67,6 +68,7 @@ CManager::CManager()
 	m_Fade = nullptr;
 	m_pSound = nullptr;
 	m_pRanking = nullptr;
+	m_pBlockManager = nullptr;
 	m_typeInput = TYPE_INPUT::TYPE_NONE;
 }
 
@@ -224,6 +226,24 @@ HRESULT CManager::Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 		}
 	}
 
+	if (m_pBlockManager != nullptr)
+	{
+		delete m_pBlockManager;
+		m_pBlockManager = nullptr;
+
+	}
+
+	if (m_pBlockManager == nullptr)
+	{
+		//ブロックマネージャーの生成
+		m_pBlockManager = CBlockManager::GetInstance();
+
+		if (m_pBlockManager != nullptr)
+		{
+			m_pBlockManager->Init();
+		}
+	}
+
 	m_PauseOK = true;
 
 	return S_OK;
@@ -253,6 +273,15 @@ void CManager::Uninit(void)
 
 		delete m_pScene;
 		m_pScene = nullptr;
+	}
+
+	if (m_pBlockManager != nullptr)
+	{
+		//ブロックマネージャーの終了処理
+		m_pBlockManager->Uninit();
+
+		delete m_pBlockManager;
+		m_pBlockManager = nullptr;
 	}
 
 	//全てのオブジェクトの破棄
@@ -431,6 +460,9 @@ void CManager::Update(void)
 
 	//フェードの更新処理
 	m_Fade->Update();
+
+	//ブロックマネージャーの更新処理
+	m_pBlockManager->Update();
 }
 
 //====================================================================

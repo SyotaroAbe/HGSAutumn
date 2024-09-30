@@ -175,6 +175,8 @@
     <ClCompile Include="2DUI.cpp" />
     <ClCompile Include="2DUI_edit.cpp" />
     <ClCompile Include="action.cpp" />
+    <ClCompile Include="block.cpp" />
+    <ClCompile Include="blockmanager.cpp" />
     <ClCompile Include="BowmanArrow.cpp" />
     <ClCompile Include="debris.cpp" />
     <ClCompile Include="enemyBowman.cpp" />
@@ -262,6 +264,8 @@
     <ClInclude Include="2DUI.h" />
     <ClInclude Include="2DUI_edit.h" />
     <ClInclude Include="action.h" />
+    <ClInclude Include="block.h" />
+    <ClInclude Include="blockmanager.h" />
     <ClInclude Include="BowmanArrow.h" />
     <ClInclude Include="debris.h" />
     <ClInclude Include="enemyBowman.h" />
