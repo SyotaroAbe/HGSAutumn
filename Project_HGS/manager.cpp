@@ -27,7 +27,7 @@
 #include "blockmanager.h"
 
 #ifdef _DEBUG
-#define SET_MODE (CScene::MODE_RESULT)
+#define SET_MODE (CScene::MODE_GAME)
 #else
 #define SET_MODE (CScene::MODE_GAME)
 #endif // _DEBUG
