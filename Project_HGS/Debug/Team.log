@@ -1,4 +1,39 @@
-﻿  blockmanager.cpp
+﻿  2DEffect.cpp
+  2DUI.cpp
+  2DUI_edit.cpp
+  GamePause.cpp
+  MapModel.cpp
+  ParameterUI.cpp
+  Pause.cpp
+  Player2D.cpp
+  SampleLevelModel.cpp
+  SampleObj2D.cpp
+  block.cpp
+  blockmanager.cpp
+  cursorUI.cpp
+  enemy.cpp
+  enemyAshigaru.cpp
+  enemyBowman.cpp
+  game.cpp
+  log.cpp
+  logo.cpp
+  manager.cpp
+  コンパイル中...
+  modelEffect.cpp
+  number.cpp
+  object2D.cpp
+  objectAnim2d.cpp
+  player.cpp
+  ranking.cpp
+  result.cpp
+  score.cpp
+  screenCover2D.cpp
+  scrollOpen.cpp
+  smoke_screen.cpp
+  sound.cpp
+  time.cpp
+  title.cpp
+  tutorial.cpp
   2DEffect.obj : MSIL .netmodule または /GL を伴ってコンパイルされたモジュールが見つかりました。/LTCG を使用して再開始してください。リンカーのパフォーマンスを向上させるためには、コマンドラインに /LTCG を追加してください。
 LINK : warning LNK4075: /INCREMENTAL は /LTCG の指定によって無視されます。
   コード生成しています。
