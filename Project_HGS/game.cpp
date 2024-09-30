@@ -177,7 +177,7 @@ HRESULT CGame::Init(void)
 	m_pPlayer2D->SetPos(D3DXVECTOR3(100.0f, 100.0f, 0.0f));
 	
 	CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_BGM_GAME);
-	//CManager::GetInstance()->GetBlockManager()->SetTutorial();
+	CManager::GetInstance()->GetBlockManager()->SetTutorial();
 
 #if _DEBUG
 	if (m_pEdit == nullptr)
