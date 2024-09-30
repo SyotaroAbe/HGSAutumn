@@ -162,7 +162,7 @@ HRESULT CGame::Init(void)
 	m_pBg->SetPos(D3DXVECTOR3(640.0f, 360.0f, 0.0f));
 	m_pBg->SetWidth(1280.0f);
 	m_pBg->SetHeight(720.0f);
-	m_pBg->SetTexture("data\\TEXTURE\\GameBG.png");
+	m_pBg->SetColor(D3DXCOLOR(0.0f, 0.0f, 0.0f, 1.0f));
 
 	m_bGameEnd = false;
 	CManager::GetInstance()->GetInstance()->SetStop(false);
@@ -177,7 +177,7 @@ HRESULT CGame::Init(void)
 	m_pPlayer2D->SetPos(D3DXVECTOR3(100.0f, 100.0f, 0.0f));
 	
 	CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_BGM_GAME);
-	CManager::GetInstance()->GetBlockManager()->SetTutorial();
+	//CManager::GetInstance()->GetBlockManager()->SetTutorial();
 
 #if _DEBUG
 	if (m_pEdit == nullptr)
@@ -295,17 +295,6 @@ void CGame::Update(void)
 	{
 		//イベントの更新
 		EventUpdate();
-	}
-
-	if (CManager::GetInstance()->GetInputKeyboard()->GetTrigger(DIK_RETURN) == true)
-	{
-		m_bGameEnd = true;
-		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_ENTER_PUSH);
-	}
-	if (CManager::GetInstance()->GetInputJoyPad()->GetTrigger(CInputJoypad::BUTTON_A, 0) == true)
-	{
-		m_bGameEnd = true;
-		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_ENTER_PUSH);
 	}
 
 	if (m_bGameEnd == true)

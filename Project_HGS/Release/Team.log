@@ -1,1 +1,12 @@
+<<<<<<< HEAD
+﻿  Player2D.cpp
+  blockmanager.cpp
+  game.cpp
+  manager.cpp
+  コード生成しています。
+  Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
+  コード生成が終了しました。
+  Team.vcxproj -> C:\Users\student\Desktop\HGS_00\HGSAutumn\Project_HGS\Team.exe
+=======
 ﻿  Team.vcxproj -> C:\Users\student\Desktop\HGSAutumn\Project_HGS\Team.exe
+>>>>>>> d77aa21482716a4643d2a1353261b5d70eaa7974
