@@ -28,6 +28,8 @@ namespace
 //====================================================================
 CPlayer2D::CPlayer2D(int nPriority) : CObject2D(nPriority)
 {
+	SetWidth(SAMPLE_WIGHT);
+	SetHeight(SAMPLE_HEIGHT);
 	SetWidth(Size.x);
 	SetHeight(Size.y);
 	m_Move = INITVECTOR3;
@@ -76,7 +78,8 @@ HRESULT CPlayer2D::Init(void)
 	//SetTexture("data\\TEXTURE\\Number01.png");
 
 	//新しくcppを作成した時は新しいTYPEを列挙に追加して指定すること
-	SetType(CObject::TYPE_SAMPLE);
+	SetType(CObject::TYPE_PLAYER2D);
+
 	m_Move.x = move_player;
 	return S_OK;
 }
@@ -98,7 +101,9 @@ void CPlayer2D::Update(void)
 	CObject2D::Update();
 
 	D3DXVECTOR3 pos = GetPos();
+
 	Move(&pos);
+
 	Jump();
 	//移動範囲のチェック
 	if (pos_max.x < (pos.x + (Size.x / 2)))
@@ -137,6 +142,7 @@ void CPlayer2D::Draw(void)
 //====================================================================
 void CPlayer2D::Move(D3DXVECTOR3* pos)
 {
+	float fMove = 5.0f;
 	*pos += m_Move;
 }
 

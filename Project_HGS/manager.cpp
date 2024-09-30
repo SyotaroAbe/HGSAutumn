@@ -18,7 +18,7 @@
 #include "game.h"
 #include "result.h"
 #include "fade.h"
-#include "Pause.h"
+#include "GamePause.h"
 #include "sound.h"
 #include "Edit.h"
 #include "time.h"
@@ -412,24 +412,11 @@ void CManager::Update(void)
 
 			if (m_Pause == true)
 			{
-				CGame::GetPause()->SetAppear(true);
+				CGame::GetGamePause()->SetAppear(true);
 			}
 			else
 			{
-				CGame::GetPause()->SetAppear(false);
-			}
-
-			break;
-
-		case CScene::MODE_TUTORIAL:
-
-			if (m_Pause == true)
-			{
-				CTutorial::GetPause()->SetAppear(true);
-			}
-			else
-			{
-				CTutorial::GetPause()->SetAppear(false);
+				CGame::GetGamePause()->SetAppear(false);
 			}
 
 			break;

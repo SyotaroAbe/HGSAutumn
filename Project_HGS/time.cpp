@@ -8,8 +8,8 @@
 #include "number.h"
 
 //マクロ定義
-#define SPACE_TIME (15.0f)		//タイム同士の隙間
-#define TIME_POS (D3DXVECTOR3(1168.0f, 480.0f, 0.0f))		//タイムの位置
+#define SPACE_TIME (40.0f)		//タイム同士の隙間
+#define TIME_POS (D3DXVECTOR3(1050.0f, 40.0f, 0.0f))		//タイムの位置
 
 //静的メンバ変数宣言
 CNumber* CTime::m_apObject[NUM_TIME] = {};
@@ -79,21 +79,21 @@ HRESULT CTime::Init(void)
 
 			if (nCntObject < 2)
 			{
-				m_apObject[nCntObject]->SetPos(D3DXVECTOR3(m_pos.x + (nCntObject * SPACE_TIME) - 3.0f, m_pos.y, m_pos.z));
-				m_apObject[nCntObject]->SetWidth(20.0f);
-				m_apObject[nCntObject]->SetHeight(20.0f);
+				m_apObject[nCntObject]->SetPos(D3DXVECTOR3(m_pos.x + (nCntObject * SPACE_TIME) - 7.0f, m_pos.y, m_pos.z));
+				m_apObject[nCntObject]->SetWidth(50.0f);
+				m_apObject[nCntObject]->SetHeight(50.0f);
 			}
 			else if (nCntObject < 4)
 			{
 				m_apObject[nCntObject]->SetPos(D3DXVECTOR3(m_pos.x + (nCntObject * SPACE_TIME), m_pos.y, m_pos.z));
-				m_apObject[nCntObject]->SetWidth(20.0f);
-				m_apObject[nCntObject]->SetHeight(20.0f);
+				m_apObject[nCntObject]->SetWidth(50.0f);
+				m_apObject[nCntObject]->SetHeight(50.0f);
 			}
 			else
 			{
-				m_apObject[nCntObject]->SetPos(D3DXVECTOR3(m_pos.x + (nCntObject * (SPACE_TIME - 2.0f)) + 8.0f, m_pos.y + 2.0f, m_pos.z));
-				m_apObject[nCntObject]->SetWidth(18.0f);
-				m_apObject[nCntObject]->SetHeight(18.0f);
+				m_apObject[nCntObject]->SetPos(D3DXVECTOR3(m_pos.x + (nCntObject * (SPACE_TIME - 5.0f)) + 20.0f, m_pos.y + 5.0f, m_pos.z));
+				m_apObject[nCntObject]->SetWidth(40.0f);
+				m_apObject[nCntObject]->SetHeight(40.0f);
 			}
 
 			m_apObject[nCntObject]->SetColor(D3DXCOLOR(1.0f, 1.0f, 1.0f, 0.0f));

@@ -44,7 +44,7 @@ private:
 	float m_fRadius;						//半径(大きさ)
 	float m_fDel;							//半径を小さくしていく値
 	D3DXCOLOR m_col;						//色
-	float m_nLifeMax;							//寿命の最大値
+	float m_nLifeMax;						//寿命の最大値
 	float m_nLife;							//寿命
 	char* m_cTexName;
 };

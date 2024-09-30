@@ -124,7 +124,8 @@ void CObject::UpdateAll(void)
 					{
 						if (pObject->GetType() == TYPE_TUTORIALUI ||
 							pObject->GetType() == TYPE_EXPLOSION ||
-							pObject->GetType() == TYPE_FG)
+							pObject->GetType() == TYPE_FG ||
+							pObject->GetType() == TYPE_PLAYER2D)
 						{
 							//XVˆ—
 							pObject->Update();

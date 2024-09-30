@@ -21,6 +21,7 @@
 #include "CubeDamage.h"
 #include "player.h"
 #include "Pause.h"
+#include "GamePause.h"
 #include "camera.h"
 #include "game.h"
 #include "sound.h"
@@ -99,6 +100,8 @@ float CGame::m_BGColorA = 1.0f;
 D3DXVECTOR3 CGame::m_EventPos = D3DXVECTOR3(0.0f, 300.0f, 0.0f);
 D3DXVECTOR3 CGame::m_BGRot = INITVECTOR3;
 
+CGamePause* CGame::m_pGamePause = nullptr;
+
 CAim* CGame::m_pAim = nullptr;
 
 //====================================================================
@@ -145,22 +148,23 @@ HRESULT CGame::Init(void)
 	m_pMeshField = CObjmeshField::Create(21, 21);
 	m_pMeshField->SetPos(INITVECTOR3);
 
-	//ポーズの生成
-	if (m_pPause == nullptr)
+	//ゲーム用ポーズの生成
+	if (m_pGamePause == nullptr)
 	{
-		m_pPause = CPause::Create();
+		m_pGamePause = CGamePause::Create();
 	}
 
 	m_bGameEnd = false;
 	CManager::GetInstance()->GetInstance()->SetStop(false);
 
-	// スコアの生成
-	m_pScore = CScore::Create();
+	// タイムの生成
+	m_pTime = CTime::Create();
+	m_pTime->SetStartTime(timeGetTime());
+	m_pTime->SetTime(0);
 
+	//プレイヤーの生成
 	m_pPlayer2D = CPlayer2D::Create();
 	m_pPlayer2D->SetPos(D3DXVECTOR3(100.0f, 100.0f, 0.0f));
-
-	//CScrollOpen::Create();
 
 #if _DEBUG
 	if (m_pEdit == nullptr)
@@ -186,10 +190,10 @@ void CGame::Uninit(void)
 
 	m_pBoss = nullptr;
 
-	if (m_pPause != nullptr)
+	if (m_pGamePause != nullptr)
 	{
-		delete m_pPause;
-		m_pPause = nullptr;
+		delete m_pGamePause;
+		m_pGamePause = nullptr;
 	}
 
 #if _DEBUG
@@ -256,6 +260,12 @@ void CGame::Update(void)
 		CManager::GetInstance()->SetGameSpeed(Speed);
 	}
 
+	if (pInputKeyboard->GetTrigger(DIK_3) == true)
+	{
+		m_pTime->SetStartTime(0);
+		m_pTime->SetTime(0);
+	}
+
 	if (CManager::GetInstance()->GetGameSpeed() <= 1.0f)
 	{
 		m_Slow = true;
@@ -267,8 +277,8 @@ void CGame::Update(void)
 
 #endif
 
-	//ポーズの更新処理
-	m_pPause->Update();
+	//ゲーム用ポーズの更新処理
+	m_pGamePause->Update();
 
 	if (m_bEvent == true)
 	{
@@ -290,11 +300,6 @@ void CGame::Update(void)
 	if (m_bGameEnd == true)
 	{
 		CFade::SetFade(CScene::MODE_RESULT);
-
-		if (CManager::GetInstance()->GetGameClear() == true)
-		{
-			CManager::GetInstance()->SetEndTime(m_pTime->GetTimeNumber());
-		}
 	}
 }
 
