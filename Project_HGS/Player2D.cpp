@@ -7,11 +7,22 @@
 #include "Player2D.h"
 #include "renderer.h"
 #include "manager.h"
+#include "input.h"
 
 //マクロ定義
 #define SAMPLE_WIGHT (60.0f)		//横幅
 #define SAMPLE_HEIGHT (80.0f)		//縦幅
 
+namespace
+{
+	D3DXVECTOR2 Size		 = D3DXVECTOR2(60.0f, 80.0f);//プレイヤーの大きさ
+	float move_player		= 5.0f; //プレイヤーの移動速度
+	float jump_player		= 5.0f; //プレイヤーのジャンプ強度		
+	float gravity			= 0.1f;	//重力
+	D3DXVECTOR3 move_space	= D3DXVECTOR3(250.0f, 250.0f, 0.0f);//中心からの移動範囲
+	D3DXVECTOR3 pos_max		= SCREEN_CENTER + move_space;
+	D3DXVECTOR3 pos_min		= SCREEN_CENTER - move_space;
+}
 //====================================================================
 //コンストラクタ
 //====================================================================
@@ -19,8 +30,12 @@ CPlayer2D::CPlayer2D(int nPriority) : CObject2D(nPriority)
 {
 	SetWidth(SAMPLE_WIGHT);
 	SetHeight(SAMPLE_HEIGHT);
+	SetWidth(Size.x);
+	SetHeight(Size.y);
+	m_Move = INITVECTOR3;
 	m_nSample = 0;
 	m_bRight = true;
+	m_bLanding = false;
 }
 
 //====================================================================
@@ -64,8 +79,9 @@ HRESULT CPlayer2D::Init(void)
 	//SetTexture("data\\TEXTURE\\Number01.png");
 
 	//新しくcppを作成した時は新しいTYPEを列挙に追加して指定すること
-	SetType(CObject::TYPE_PLAYER2D);
+	SetType(CObject::TYPE_SAMPLE);
 
+	m_Move.x = move_player;
 	return S_OK;
 }
 
@@ -89,6 +105,28 @@ void CPlayer2D::Update(void)
 
 	Move(&pos);
 
+	Jump();
+	//移動範囲のチェック
+	if (pos_max.x < (pos.x + (Size.x / 2)))
+	{
+		pos.x = pos_max.x - (Size.x / 2);
+		m_Move.x *= -1.0f;
+	}
+	else if (pos_min.x > (pos.x - (Size.x / 2)))
+	{
+		pos.x = pos_min.x + (Size.x / 2);
+		m_Move.x *= -1.0f;
+	}
+	//重力と落下限界
+	m_Move.y += gravity;
+	if (pos.y > pos_max.y)
+	{
+		//ブロックの判定が完成するまでひとまず下辺を床とする
+		pos.y = pos_max.y;
+		m_Move.y = 0.0f;
+		m_bLanding = true;
+	}
+	
 	SetPos(pos);
 }
 
@@ -106,10 +144,22 @@ void CPlayer2D::Draw(void)
 void CPlayer2D::Move(D3DXVECTOR3* pos)
 {
 	float fMove = 5.0f;
+	*pos += m_Move;
+}
 
 	if (m_bRight)
+//====================================================================
+//ジャンプ処理
+//====================================================================
+void CPlayer2D::Jump()
+{
+	CInputKeyboard* pInputKey = CManager::GetInstance()->GetInputKeyboard();
+	CInputJoypad* pInputPad = CManager::GetInstance()->GetInputJoyPad();
+	if (m_bLanding &&(pInputKey->GetTrigger(DIK_SPACE) || pInputPad->GetTrigger(CInputJoypad::BUTTON_A,0)))
 	{
 		pos->x += fMove;
+		m_bLanding = false;
+		m_Move.y = -jump_player;
 	}
 	else
 	{
