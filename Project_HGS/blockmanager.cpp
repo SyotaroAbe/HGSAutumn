@@ -84,6 +84,8 @@ void CBlockManager::Update(void)
 		break;
 
 	case CScene::MODE_RESULT:
+		listBlock.clear();
+		m_nBlockRandom = 1450;
 		break;
 	}
 }
@@ -114,17 +116,12 @@ void CBlockManager::GameUpdate(void)
 				//itrBlock->Update();
 			}
 		}
+	}
 
-		// 各ブロックが破棄予定ならリストから消去
-		std::list<CBlock*>  listBlockDef = listBlock;
 		for (auto itrBlock : listBlock)
 		{
-			if (itrBlock->GetDeathFlag())
-			{
-				listBlockDef.remove(itrBlock);
 			}
 		}
-		listBlock = listBlockDef;
 	}
 }
 
@@ -233,7 +230,6 @@ void  CBlockManager::SetStage(void)
 			}
 
 			listBlock.push_back(pBlock);
-
 			int RandSpike = rand() % 101;
 			int RamdBane = rand() % 101;
 			int Ran = rand() % 101;
@@ -357,11 +353,11 @@ void  CBlockManager::SetStage(void)
 //====================================================================
 void  CBlockManager::SetTutorial(void)
 {
-	CBlock* pBlock = CBlockTitle::Create(D3DXVECTOR3(400.0f, 300.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 300.0f, 100.0f);
+	CBlock* pBlock = CBlockTitle::Create(D3DXVECTOR3(900.0f, 200.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 200.0f, 50.0f);
 		pBlock->SetTexture("data\\TEXTURE\\HGS\\Pause_logo.png");
 	listBlock.push_back(pBlock);
 
-	pBlock = CBlockBase::Create(D3DXVECTOR3(700.0f, 400.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 200.0f, 50.0f);
+	pBlock = CBlockTutorial::Create(D3DXVECTOR3(400.0f, 350.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 400.0f, 200.0f);
 	listBlock.push_back(pBlock);
 
 	pBlock = CBlockTutorial::Create(D3DXVECTOR3(940.0f, 650.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 400.0f, 200.0f);

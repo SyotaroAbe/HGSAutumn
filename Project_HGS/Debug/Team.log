@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Player2D.cpp
   blockmanager.cpp
   game.cpp
@@ -7,3 +8,6 @@ LINK : warning LNK4075: /INCREMENTAL は /LTCG の指定によって無視され
   コード生成しています。
   コード生成が終了しました。
   Team.vcxproj -> C:\Users\student\Desktop\HGS_00\HGSAutumn\Project_HGS\Debug\Team.exe
+=======
+﻿  Team.vcxproj -> C:\Users\student\Desktop\HGSAutumn\Project_HGS\Debug\Team.exe
+>>>>>>> d77aa21482716a4643d2a1353261b5d70eaa7974

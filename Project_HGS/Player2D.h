@@ -33,7 +33,7 @@ public:
 	D3DXVECTOR3 GetPosOld(void) { return m_PosOld; }
 	bool GetLanding(void) { return m_bLanding; }
 	void SetLanding(bool bLanding) { m_bLanding = bLanding; }
-
+	void Death();
 private:
 	void Move(D3DXVECTOR3* pos);
 	void Jump();
