@@ -7,6 +7,7 @@
 #include "Player2D.h"
 #include "renderer.h"
 #include "manager.h"
+#include "blockmanager.h"
 #include "input.h"
 
 //ƒ}ƒNƒ’è‹`
@@ -101,7 +102,7 @@ void CPlayer2D::Update(void)
 	CObject2D::Update();
 
 	D3DXVECTOR3 pos = GetPos();
-
+	m_PosOld = pos;
 	Move(&pos);
 
 	Jump();
@@ -125,8 +126,10 @@ void CPlayer2D::Update(void)
 		m_Move.y = 0.0f;
 		m_bLanding = true;
 	}
-	
+
 	SetPos(pos);
+
+	CManager::GetInstance()->GetBlockManager()->Collision(this);
 }
 
 //====================================================================

@@ -12,6 +12,7 @@
 
 // 前方宣言
 class CBlock;
+class CPlayer2D;
 
 // ブロックマネージャークラス
 class CBlockManager
@@ -28,14 +29,14 @@ public:
 	void Update(void);
 	void Draw(void);
 
+	void Collision(CPlayer2D* pPlayer2D);
+
 	// 取得処理・設定処理
 
 private:
 	void TitleUpdate(void);
 	void GameUpdate(void);
 	void TutorialUpdate(void);
-
-	void Collision(void);
 
 	static CBlockManager* pBlockManager;
 	std::list<CBlock*> listBlock;
