@@ -1,21 +1,10 @@
-﻿  MiniMapCamera.cpp
-  ParameterUI.cpp
-  Scroll.cpp
-  TreasureBox.cpp
-  Ultimate.cpp
-  aim.cpp
-  boss.cpp
-  camera.cpp
-  enemy.cpp
+﻿  2DEffect.cpp
   game.cpp
-  modelEffect.cpp
-  objGauge2D.cpp
+  number.cpp
   player.cpp
-  scrollOpen.cpp
-  tutorial.cpp
-     ライブラリ C:\Users\student\Desktop\NINGA_GAME\Wow\Project01\Team.lib とオブジェクト C:\Users\student\Desktop\NINGA_GAME\Wow\Project01\Team.exp を作成中
+  LevelModelEffect.cpp
+     ライブラリ C:\Users\student\Desktop\HGS_Autumn_2024\HGSAutumn\Project_HGS\Team.lib とオブジェクト C:\Users\student\Desktop\HGS_Autumn_2024\HGSAutumn\Project_HGS\Team.exp を作成中
   コード生成しています。
   Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
-C:\Users\student\Desktop\NINGA_GAME\Wow\Project01\aim.cpp(527): warning C4172: ローカル変数またはテンポラリのアドレスを返します: ScreenPos
   コード生成が終了しました。
-  Team.vcxproj -> C:\Users\student\Desktop\NINGA_GAME\Wow\Project01\Team.exe
+  Team.vcxproj -> C:\Users\student\Desktop\HGS_Autumn_2024\HGSAutumn\Project_HGS\Team.exe

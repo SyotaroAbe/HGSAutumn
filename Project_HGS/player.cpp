@@ -347,7 +347,7 @@ void CPlayer::Move(void)
 		NormarizeMove.z += 1.0f * cosf(CameraRot.y) * PLAYER_SPEED;
 		NormarizeMove.x += 1.0f * sinf(CameraRot.y) * PLAYER_SPEED;
 
-}
+	}
 	if (pInputKeyboard->GetPress(DIK_S))
 	{
 		NormarizeMove.z += -1.0f * cosf(CameraRot.y) * PLAYER_SPEED;
@@ -390,57 +390,38 @@ void CPlayer::Move(void)
 
 #else
 
-	if (CManager::TYPE_MNK == CManager::GetInstance()->GetTypeInput())
+	//キーボードの移動処理
+	if (pInputKeyboard->GetPress(DIK_W))
 	{
-		//キーボードの移動処理
-		if (pInputKeyboard->GetPress(DIK_W))
-		{
-			NormarizeMove.z += 1.0f * cosf(CameraRot.y) * PLAYER_SPEED;
-			NormarizeMove.x += 1.0f * sinf(CameraRot.y) * PLAYER_SPEED;
+		NormarizeMove.z += 1.0f * cosf(CameraRot.y) * PLAYER_SPEED;
+		NormarizeMove.x += 1.0f * sinf(CameraRot.y) * PLAYER_SPEED;
 
-		}
-		if (pInputKeyboard->GetPress(DIK_S))
-		{
-			NormarizeMove.z += -1.0f * cosf(CameraRot.y) * PLAYER_SPEED;
-			NormarizeMove.x += -1.0f * sinf(CameraRot.y) * PLAYER_SPEED;
-		}
-		if (pInputKeyboard->GetPress(DIK_A))
-		{
-			NormarizeMove.x += -1.0f * cosf(CameraRot.y) * PLAYER_SPEED;
-			NormarizeMove.z -= -1.0f * sinf(CameraRot.y) * PLAYER_SPEED;
-
-		}
-		if (pInputKeyboard->GetPress(DIK_D))
-		{
-			NormarizeMove.x += 1.0f * cosf(CameraRot.y) * PLAYER_SPEED;
-			NormarizeMove.z -= 1.0f * sinf(CameraRot.y) * PLAYER_SPEED;
-		}
 	}
-	else if (CManager::TYPE_JOYPAD == CManager::GetInstance()->GetTypeInput())
+	if (pInputKeyboard->GetPress(DIK_S))
 	{
-		if (pInputKeyboard->GetPress(DIK_W) == false && pInputKeyboard->GetPress(DIK_A) == false && pInputKeyboard->GetPress(DIK_S) == false && pInputKeyboard->GetPress(DIK_D) == false)
-		{
-			//左スティックによる前後移動	
-			m_move.z += pInputJoypad->Get_Stick_Left(0).y * cosf(CameraRot.y) * PLAYER_SPEED;
-			m_move.x += pInputJoypad->Get_Stick_Left(0).y * sinf(CameraRot.y) * PLAYER_SPEED;
-
-			//左スティックによる左右移動
-			m_move.x += pInputJoypad->Get_Stick_Left(0).x * cosf(CameraRot.y) * PLAYER_SPEED;
-			m_move.z -= pInputJoypad->Get_Stick_Left(0).x * sinf(CameraRot.y) * PLAYER_SPEED;
-		}
+		NormarizeMove.z += -1.0f * cosf(CameraRot.y) * PLAYER_SPEED;
+		NormarizeMove.x += -1.0f * sinf(CameraRot.y) * PLAYER_SPEED;
 	}
-	else if (CManager::TYPE_JOYCON == CManager::GetInstance()->GetTypeInput())
+	if (pInputKeyboard->GetPress(DIK_A))
 	{
-		if (pInputKeyboard->GetPress(DIK_W) == false && pInputKeyboard->GetPress(DIK_A) == false && pInputKeyboard->GetPress(DIK_S) == false && pInputKeyboard->GetPress(DIK_D) == false)
-		{
-			//左スティックによる前後移動	
-			m_move.z += pJoycon->Get_Joycon_Stick().y * cosf(CameraRot.y) * PLAYER_SPEED;
-			m_move.x += pJoycon->Get_Joycon_Stick().y * sinf(CameraRot.y) * PLAYER_SPEED;
+		NormarizeMove.x += -1.0f * cosf(CameraRot.y) * PLAYER_SPEED;
+		NormarizeMove.z -= -1.0f * sinf(CameraRot.y) * PLAYER_SPEED;
 
-			//左スティックによる左右移動
-			m_move.x += pJoycon->Get_Joycon_Stick().x * cosf(CameraRot.y) * PLAYER_SPEED;
-			m_move.z -= pJoycon->Get_Joycon_Stick().x * sinf(CameraRot.y) * PLAYER_SPEED;
-		}
+	}
+	if (pInputKeyboard->GetPress(DIK_D))
+	{
+		NormarizeMove.x += 1.0f * cosf(CameraRot.y) * PLAYER_SPEED;
+		NormarizeMove.z -= 1.0f * sinf(CameraRot.y) * PLAYER_SPEED;
+	}
+	if (pInputKeyboard->GetPress(DIK_W) == false && pInputKeyboard->GetPress(DIK_A) == false && pInputKeyboard->GetPress(DIK_S) == false && pInputKeyboard->GetPress(DIK_D) == false)
+	{
+		//左スティックによる前後移動	
+		m_move.z += pInputJoypad->Get_Stick_Left(0).y * cosf(CameraRot.y) * PLAYER_SPEED;
+		m_move.x += pInputJoypad->Get_Stick_Left(0).y * sinf(CameraRot.y) * PLAYER_SPEED;
+
+		//左スティックによる左右移動
+		m_move.x += pInputJoypad->Get_Stick_Left(0).x * cosf(CameraRot.y) * PLAYER_SPEED;
+		m_move.z -= pInputJoypad->Get_Stick_Left(0).x * sinf(CameraRot.y) * PLAYER_SPEED;
 	}
 
 	if (pInputKeyboard->GetPress(DIK_W) == true || pInputKeyboard->GetPress(DIK_A) == true || pInputKeyboard->GetPress(DIK_S) == true || pInputKeyboard->GetPress(DIK_D) == true)
