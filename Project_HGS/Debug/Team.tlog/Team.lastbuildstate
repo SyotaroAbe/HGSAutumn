@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.29.30133:TargetPlatformVersion=10.0.19041.0:
 Debug|Win32|C:\Users\student\Desktop\HGSAutumn\Project_HGS\|
 =======
@@ -14,3 +15,7 @@ PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.29.30133:T
 Debug|Win32|C:\Users\student\Desktop\HGS_2024_\HGSAutumn\Project_HGS\|
 >>>>>>> b35dc829e6089a3ef5e6094b2ab0fb0592e16e89
 >>>>>>> 3bc612074539657024682a2c56d662a295f21bcc
+=======
+PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.29.30133:TargetPlatformVersion=10.0.26100.0:
+Debug|Win32|C:\Users\student\Desktop\HGS_Autumn\HGSAutumn\Project_HGS\|
+>>>>>>> 3dbb2db5b6434ac70b0407596ca9f24e860c8da1

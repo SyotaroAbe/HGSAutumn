@@ -8,4 +8,8 @@ C:\個人\チーム制作まとめ\ハッカソン\HGSAutumn\Project_HGS\Debug\T
 C:\Users\student\Desktop\HGSAutumn\Project_HGS\Debug\Team.exe
 =======
 C:\Users\student\Desktop\HGS_2024_\HGSAutumn\Project_HGS\Debug\Team.exe
+<<<<<<< HEAD
 >>>>>>> ad7260c8656d71d3a6a8bd37a595462ac1908092
+=======
+C:\Users\student\Desktop\HGS_Autumn\HGSAutumn\Project_HGS\Debug\Team.exe
+>>>>>>> 3dbb2db5b6434ac70b0407596ca9f24e860c8da1
