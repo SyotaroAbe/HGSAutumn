@@ -22,14 +22,14 @@
 
 //マクロ定義
 #define SCREEN_WIDTH (1280)					//ウインドウの幅
-#define SCREEN_WIDTHCENTER (640)			//ウインドウの幅中央
+#define SCREEN_WIDTHCENTER (SCREEN_WIDTH / 2)			//ウインドウの幅中央
 #define SCREEN_HEIGHT (720)					//ウインドウの高さ
-#define SCREEN_HEIGHTCENTER (360)			//ウインドウの高さ中央
+#define SCREEN_HEIGHTCENTER (SCREEN_HEIGHT / 2)			//ウインドウの高さ中央
 #define MY_FVF  (D3DFVF_XYZ | D3DFVF_DIFFUSE | D3DFVF_SPECULAR)
 #define FVF_VERTEX_2D (D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1)					//頂点フォーマット
 #define FVF_VERTEX_3D (D3DFVF_XYZ | D3DFVF_NORMAL | D3DFVF_DIFFUSE | D3DFVF_TEX1)		//頂点フォーマット
 #define INITVECTOR3 (D3DXVECTOR3(0.0f,0.0f,0.0f))		//座標のデフォルト
-#define SCREEN_CENTER (D3DXVECTOR3(640.0f,360.0f,0.0f))		//スクリーン座標の中心
+#define SCREEN_CENTER (D3DXVECTOR3(SCREEN_WIDTHCENTER,SCREEN_HEIGHTCENTER,0.0f))		//スクリーン座標の中心
 
 //頂点構造体[2D]の構造体を定義
 typedef struct

@@ -31,8 +31,9 @@ public:
 
 private:
 	void Move(D3DXVECTOR3* pos);
-
+	void Jump();
 	int m_nSample;							//サンプル変数
-	bool m_bRight;							//右を向いているかどうか
+	D3DXVECTOR3 m_Move;						//移動速度
+	bool m_bLanding;						//接地状態
 };
 #endif
