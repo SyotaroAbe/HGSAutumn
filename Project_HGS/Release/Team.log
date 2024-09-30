@@ -1,9 +1,5 @@
-﻿  Player2D.cpp
-  block.cpp
+﻿  block.cpp
   blockmanager.cpp
-  game.cpp
-  manager.cpp
-  object.cpp
   コード生成しています。
   Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
   コード生成が終了しました。
