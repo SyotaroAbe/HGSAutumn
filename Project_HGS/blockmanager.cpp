@@ -380,7 +380,4 @@ void  CBlockManager::SetTutorial(void)
 
 	pBlock = CBlockBase::Create(D3DXVECTOR3(740.0f, 1500.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 700.0f, 50.0f);
 	listBlock.push_back(pBlock);
-
-	pBlock = CBlockBase::Create(D3DXVECTOR3(540.0f, 1600.0f, 0.0f), D3DXVECTOR3(0.0f, -1.0f, 0.0f), 700.0f, 50.0f);
-	listBlock.push_back(pBlock);
 }
