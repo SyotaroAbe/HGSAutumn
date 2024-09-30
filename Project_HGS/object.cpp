@@ -112,30 +112,8 @@ void CObject::UpdateAll(void)
 			{
 				if (pObject->m_Appear == true)
 				{
-					if (CManager::GetInstance()->GetEdit() == true)
-					{
-						//if (pObject->GetType() == TYPE_EFFECT)
-						//{
-						//	//更新処理
-						//	pObject->Update();
-						//}
-					}
-					else if (CManager::GetInstance()->GetPause() == true)
-					{
-						if (pObject->GetType() == TYPE_TUTORIALUI ||
-							pObject->GetType() == TYPE_EXPLOSION ||
-							pObject->GetType() == TYPE_FG ||
-							pObject->GetType() == TYPE_PLAYER2D)
-						{
-							//更新処理
-							pObject->Update();
-						}
-					}
-					else
-					{
-						//更新処理
-						pObject->Update();
-					}
+					//更新処理
+					pObject->Update();
 				}
 			}
 
