@@ -11,13 +11,10 @@
 #include "input.h"
 
 //マクロ定義
-#define SAMPLE_WIGHT (60.0f)		//横幅
-#define SAMPLE_HEIGHT (80.0f)		//縦幅
-
 namespace
 {
-	D3DXVECTOR2 Size		 = D3DXVECTOR2(60.0f, 80.0f);//プレイヤーの大きさ
-	float move_player		= 5.0f; //プレイヤーの移動速度
+	D3DXVECTOR2 Size		 = D3DXVECTOR2(30.0f, 40.0f);//プレイヤーの大きさ
+	float move_player		= 3.0f; //プレイヤーの移動速度
 	float jump_player		= 5.0f; //プレイヤーのジャンプ強度		
 	float gravity			= 0.1f;	//重力
 	D3DXVECTOR3 move_space	= D3DXVECTOR3(250.0f, 250.0f, 0.0f);//中心からの移動範囲
@@ -29,8 +26,7 @@ namespace
 //====================================================================
 CPlayer2D::CPlayer2D(int nPriority) : CObject2D(nPriority)
 {
-	SetWidth(SAMPLE_WIGHT);
-	SetHeight(SAMPLE_HEIGHT);
+
 	SetWidth(Size.x);
 	SetHeight(Size.y);
 	m_Move = INITVECTOR3;
@@ -103,9 +99,9 @@ void CPlayer2D::Update(void)
 
 	D3DXVECTOR3 pos = GetPos();
 	m_PosOld = pos;
+	Jump();
 	Move(&pos);
 
-	Jump();
 	//移動範囲のチェック
 	if (pos_max.x < (pos.x + (Size.x / 2)))
 	{

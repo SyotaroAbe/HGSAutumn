@@ -198,6 +198,7 @@
     <ClCompile Include="inputManager.cpp" />
     <ClCompile Include="logo.cpp" />
     <ClCompile Include="MoveHelpUI.cpp" />
+    <ClCompile Include="objectAnim2d.cpp" />
     <ClCompile Include="ParameterUI.cpp" />
     <ClCompile Include="Player2D.cpp" />
     <ClCompile Include="screenCover2D.cpp" />
@@ -287,6 +288,7 @@
     <ClInclude Include="inputManager.h" />
     <ClInclude Include="logo.h" />
     <ClInclude Include="MoveHelpUI.h" />
+    <ClInclude Include="objectAnim2d.h" />
     <ClInclude Include="ParameterUI.h" />
     <ClInclude Include="Player2D.h" />
     <ClInclude Include="screenCover2D.h" />
