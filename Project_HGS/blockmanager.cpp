@@ -118,11 +118,16 @@ void CBlockManager::GameUpdate(void)
 		}
 	}
 
-		for (auto itrBlock : listBlock)
+	// 各ブロックが破棄予定ならリストから消去
+	std::list<CBlock*>  listBlockDef = listBlock;
+	for (auto itrBlock : listBlock)
+	{
+		if (itrBlock->GetDeathFlag())
 		{
-			}
+			listBlockDef.remove(itrBlock);
 		}
 	}
+	listBlock = listBlockDef;
 }
 
 //====================================================================
