@@ -10,6 +10,8 @@
 #include "blockmanager.h"
 #include "input.h"
 #include "game.h"
+#include "objectAnim2d.h"
+#include "texture.h"
 //ƒ}ƒNƒ’è‹`
 namespace
 {
@@ -83,7 +85,7 @@ HRESULT CPlayer2D::Init(void)
 	 pFrame->SetWidth(move_space.x * 2);
 	 pFrame->SetHeight(move_space.y * 2);
 	 pFrame->SetTexture("data\\TEXTURE\\HGS\\frame.png");
-
+	 CManager::GetInstance()->GetTexture()->Regist("data\\TEXTURE\\HGS\\die.png");
 	m_Move.x = move_player;
 	return S_OK;
 }
@@ -124,16 +126,14 @@ void CPlayer2D::Update(void)
 	m_Move.y += gravity;
 	if (pos.y > pos_max.y)
 	{
-		SetDeathFlag(true);
-		CGame::SetGameEnd(true);
+		Death();
 	}
 	else if (pos.y < pos_min.y)
 	{
 		pos.y = pos_min.y;
 		if (m_bLanding)
 		{
-			SetDeathFlag(true);
-			CGame::SetGameEnd(true);
+			Death();
 		}
 	}
 
@@ -149,7 +149,20 @@ void CPlayer2D::Draw(void)
 {
 	CObject2D::Draw();
 }
-
+//====================================================================
+//•`‰æˆ—
+//====================================================================
+void CPlayer2D::Death(void)
+{
+	SetDeathFlag(true);
+	CGame::SetGameEnd(true);
+	CObjectAnim2D* pDead;
+	pDead = CObjectAnim2D::Create(SCREEN_CENTER, 5, 9, 5 * 9, true, 60, 5);
+	pDead->SetPos(GetPos());
+	pDead->SetHeight(500.0f);
+	pDead->SetWidth(500.0f);
+	pDead->SetTexture("data\\TEXTURE\\HGS\\die.png");
+}
 //====================================================================
 //ˆÚ“®ˆ—
 //====================================================================
