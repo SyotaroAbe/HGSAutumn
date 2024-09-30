@@ -26,6 +26,7 @@ class CFade;
 class CSound;
 class CTime;
 class CRanking;
+class CBlockManager;
 
 //シーンクラス
 class CScene
@@ -96,6 +97,7 @@ public:
 	CSound *GetSound(void) { return m_pSound; }
 	CRanking* GetRanking(void) { return m_pRanking; }
 	CLight* GetLight(void) { return m_pLight; }
+	CBlockManager* GetBlockManager(void) { return m_pBlockManager; }
 	void SetScene(CScene *Scene) { m_pScene = Scene; }
 	void SetLevelUP(CLevelUP *LevelUP) { m_LevelUP = LevelUP; }
 	void SetEdit(bool bEdit) { m_bEdit = bEdit; }
@@ -165,6 +167,7 @@ private:
 	CFade *m_Fade;						//フェードのポインタ
 	CSound *m_pSound;					//サウンドのポインタ
 	CRanking* m_pRanking;
+	CBlockManager* m_pBlockManager;
 	TYPE_INPUT m_typeInput;				//インプット種類
 };												
 

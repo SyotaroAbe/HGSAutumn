@@ -83,6 +83,7 @@ public:
 	static CObject *GetTop(int nPriority) { return m_pTop[nPriority]; }
 	CObject *GetNext(void) { return m_pNext; }
 	void SetDeathFlag(bool Set) { m_bDeath = Set; }
+	bool GetDeathFlag(void) { return m_bDeath; }
 
 	void SetType(TYPE type) { m_type = type; }
 	TYPE GetType(void) { return m_type; }
