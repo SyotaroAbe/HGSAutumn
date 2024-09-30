@@ -432,6 +432,8 @@ void CManager::Update(void)
 		m_PauseOK == true &&
 		m_Fade->GetFade() == CFade::FADE_NONE)
 	{
+		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_PAUSE);
+
 		//ğŒH ˆ—‚PFˆ—‚Q;
 		m_Pause = m_Pause ? false : true;
 
