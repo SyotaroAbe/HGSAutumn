@@ -46,5 +46,7 @@ private:
 	int m_nBlockCounter;
 	int m_nBlockRandom = 1450;
 	int m_nBlockRandomPos;
+	int m_nBlockLevel;
+	int m_nBlockLevelCount;
 };
 #endif

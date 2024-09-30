@@ -10,6 +10,8 @@
 #include "main.h"
 #include "manager.h"
 
+class CObject2D;
+
 //フェードのクラス宣言
 class CFade
 {
@@ -33,6 +35,8 @@ public:
 	static void SetFade(CScene::MODE modeNext);
 	static void SetFade();
 	static FADE GetFade(void) { return m_fade; }
+	static void SetPos(D3DXVECTOR3 Pos) { m_Pos = Pos; }
+	static D3DXVECTOR3 GetPos(void) { return m_Pos; }
 	void Fade_false(void);
 	bool Fade_OK(void);
 
@@ -41,6 +45,9 @@ protected:
 	static FADE m_fade;
 	static CScene::MODE m_modeNext;
 	static D3DXCOLOR m_colorFade;
+	static CObject2D* m_FadeFG[4];
+	static D3DXVECTOR3 m_Pos;
+	static float m_FadeFloat;
 	bool m_Fade_OK;
 	static bool m_bSetMode;
 };
