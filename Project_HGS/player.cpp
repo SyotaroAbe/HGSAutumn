@@ -334,7 +334,6 @@ void CPlayer::Move(void)
 	//キーボードの取得
 	CInputKeyboard* pInputKeyboard = CManager::GetInstance()->GetInputKeyboard();
 	CInputJoypad* pInputJoypad = CManager::GetInstance()->GetInputJoyPad();
-	CJoycon* pJoycon = CManager::GetInstance()->GetJoyconR();
 	D3DXVECTOR3 CameraRot = CManager::GetInstance()->GetCamera()->GetRot();
 
 	D3DXVECTOR3 NormarizeMove = D3DXVECTOR3(0.0f, 0.0f, 0.0f);

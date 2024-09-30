@@ -12,7 +12,6 @@
 #include "fade.h"
 
 #include "input.h"
-#include "joycon.h"
 #include "sound.h"
 
 #include "debugproc.h"
@@ -232,7 +231,6 @@ void CTutorial::Update(void)
 	LPDIRECT3DDEVICE9 m_pDevice = CManager::GetInstance()->GetRenderer()->GetDevice();
 	CInputKeyboard* pInputKeyboard = CManager::GetInstance()->GetInputKeyboard();
 	CInputJoypad* pInputJoypad = CManager::GetInstance()->GetInputJoyPad();
-	CJoycon* pjoycon = CManager::GetInstance()->GetJoyconR();
 
 #if _DEBUG
 	if (pInputKeyboard->GetTrigger(DIK_0) == true)
@@ -290,8 +288,7 @@ void CTutorial::Update(void)
 	// チュートリアルスキップ
 	if (CManager::GetInstance()->GetInputKeyboard()->GetPress(DIK_RETURN) == true ||
 		CManager::GetInstance()->GetInputJoyPad()->GetPress(CInputJoypad::BUTTON_A, 0) == true ||
-		CManager::GetInstance()->GetInputJoyPad()->GetPress(CInputJoypad::BUTTON_B, 0) == true ||
-		CManager::GetInstance()->GetJoyconR()->GetCommonButton() & CJoycon::BUTTON_A)
+		CManager::GetInstance()->GetInputJoyPad()->GetPress(CInputJoypad::BUTTON_B, 0) == true)
 	{
 		if (m_fCntSkip >= SKIP_PRESS_FRAME)
 		{
@@ -309,66 +306,19 @@ void CTutorial::Update(void)
 	}
 
 #else
-	if (CManager::TYPE_MNK == CManager::GetInstance()->GetTypeInput())
+	// チュートリアルスキップ
+	if (CManager::GetInstance()->GetInputKeyboard()->GetPress(DIK_RETURN) == true)
 	{
-		// チュートリアルスキップ
-		if (CManager::GetInstance()->GetInputKeyboard()->GetPress(DIK_RETURN) == true)
-		{
-			if (m_fCntSkip >= SKIP_PRESS_FRAME)
-			{
-				// ゲーム遷移
-				CFade::SetFade(CScene::MODE_GAME);
-			}
-			else
-			{
-				m_fCntSkip += 1.0f;
-			}
-		}
-		else
-		{
-			m_fCntSkip = 0.0f;
-		}
+		// ゲーム遷移
+		CFade::SetFade(CScene::MODE_GAME);
 	}
-	else if (CManager::TYPE_JOYPAD == CManager::GetInstance()->GetTypeInput())
+
+	// チュートリアルスキップ
+	if (CManager::GetInstance()->GetInputJoyPad()->GetPress(CInputJoypad::BUTTON_A, 0) == true ||
+		CManager::GetInstance()->GetInputJoyPad()->GetPress(CInputJoypad::BUTTON_B, 0) == true)
 	{
-		// チュートリアルスキップ
-		if (CManager::GetInstance()->GetInputJoyPad()->GetPress(CInputJoypad::BUTTON_A, 0) == true ||
-			CManager::GetInstance()->GetInputJoyPad()->GetPress(CInputJoypad::BUTTON_B, 0) == true)
-		{
-			if (m_fCntSkip >= SKIP_PRESS_FRAME)
-			{
-				// ゲーム遷移
-				CFade::SetFade(CScene::MODE_GAME);
-			}
-			else
-			{
-				m_fCntSkip += 1.0f;
-			}
-		}
-		else
-		{
-			m_fCntSkip = 0.0f;
-		}
-	}
-	else if (CManager::TYPE_JOYCON == CManager::GetInstance()->GetTypeInput())
-	{
-		// チュートリアルスキップ
-		if (CManager::GetInstance()->GetJoyconR()->GetCommonButton() & CJoycon::BUTTON_A)
-		{
-			if (m_fCntSkip >= SKIP_PRESS_FRAME)
-			{
-				// ゲーム遷移
-				CFade::SetFade(CScene::MODE_GAME);
-			}
-			else
-			{
-				m_fCntSkip += 1.0f;
-			}
-		}
-		else
-		{
-			m_fCntSkip = 0.0f;
-		}
+		// ゲーム遷移
+		CFade::SetFade(CScene::MODE_GAME);
 	}
 #endif
 	// スキップゲージの位置管理

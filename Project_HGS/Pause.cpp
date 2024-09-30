@@ -7,7 +7,6 @@
 #include "Pause.h"
 #include "manager.h"
 #include "input.h"
-#include "joycon.h"
 #include "texture.h"
 #include "object2D.h"
 #include "Fade.h"
@@ -164,15 +163,12 @@ void CPause::Update(void)
 	//キーボードの取得
 	CInputKeyboard *pInputKeyboard = CManager::GetInstance()->GetInputKeyboard();
 	CInputJoypad *pInputJoypad = CManager::GetInstance()->GetInputJoyPad();
-	CJoycon* pJoycon = CManager::GetInstance()->GetJoyconR();
 
 	if (CManager::GetInstance()->GetPause() == true)
 	{
 		if (pInputKeyboard->GetTrigger(DIK_W) == true ||
 			pInputJoypad->GetTrigger(CInputJoypad::BUTTON_UP, 0) == true ||
-			pInputJoypad->Get_LStick_Trigger(CInputJoypad::LSTICK_UP, 0) == true ||
-			(pJoycon->Get_Joycon_Stick().y >= 0.9f &&
-			pJoycon->GetTriggerStick() == true))
+			pInputJoypad->Get_LStick_Trigger(CInputJoypad::LSTICK_UP, 0) == true)
 		{
 			CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_SELECT_PUSH);
 			m_PauseSelect--;
@@ -185,9 +181,7 @@ void CPause::Update(void)
 
 		if (pInputKeyboard->GetTrigger(DIK_S) == true ||
 			pInputJoypad->GetTrigger(CInputJoypad::BUTTON_DOWN, 0) == true ||
-			pInputJoypad->Get_LStick_Trigger(CInputJoypad::LSTICK_DOWN, 0) == true ||
-			(pJoycon->Get_Joycon_Stick().y <= -0.9f &&
-			pJoycon->GetTriggerStick() == true))
+			pInputJoypad->Get_LStick_Trigger(CInputJoypad::LSTICK_DOWN, 0) == true)
 		{
 			CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_SELECT_PUSH);
 			m_PauseSelect++;
@@ -234,9 +228,7 @@ void CPause::Update(void)
 
 		if (CManager::GetInstance()->GetInputKeyboard()->GetTrigger(DIK_RETURN) == true ||
 			CManager::GetInstance()->GetInputJoyPad()->GetTrigger(CInputJoypad::BUTTON_A, 0) == true ||
-			CManager::GetInstance()->GetInputJoyPad()->GetTrigger(CInputJoypad::BUTTON_B, 0) == true ||
-			(CManager::GetInstance()->GetJoyconR()->GetCommonButton() == CJoycon::BUTTON_A &&
-				CManager::GetInstance()->GetJoyconR()->GetTriggerButton() == true))
+			CManager::GetInstance()->GetInputJoyPad()->GetTrigger(CInputJoypad::BUTTON_B, 0) == true)
 		{
 			CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_ENTER_PUSH);
 

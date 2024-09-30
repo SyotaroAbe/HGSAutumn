@@ -194,7 +194,6 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="hid.cpp" />
     <ClCompile Include="inputManager.cpp" />
-    <ClCompile Include="joycon.cpp" />
     <ClCompile Include="logo.cpp" />
     <ClCompile Include="MoveHelpUI.cpp" />
     <ClCompile Include="ParameterUI.cpp" />
@@ -281,7 +280,6 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="hidapi.h" />
     <ClInclude Include="inputManager.h" />
-    <ClInclude Include="joycon.h" />
     <ClInclude Include="logo.h" />
     <ClInclude Include="MoveHelpUI.h" />
     <ClInclude Include="ParameterUI.h" />

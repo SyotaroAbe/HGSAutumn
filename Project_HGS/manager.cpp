@@ -8,7 +8,6 @@
 #include "renderer.h"
 #include "debugproc.h"
 #include "input.h"
-#include "joycon.h"
 #include "camera.h"
 #include "MiniMapCamera.h"
 #include "light.h"
@@ -62,8 +61,6 @@ CManager::CManager()
 	m_pInputKeyboard = nullptr;
 	m_pInputJoyPad = nullptr;
 	m_pInputMouse = nullptr;
-	m_pJoyconL = nullptr;
-	m_pJoyconR = nullptr;
 	m_pCamera = nullptr;
 	m_pLight = nullptr;
 	m_pTexture = nullptr;
@@ -167,28 +164,6 @@ HRESULT CManager::Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 	}
 	//キーボードの初期化処理
 	if (FAILED(m_pInputMouse->Init(hInstance, hWnd)))
-	{//初期化処理が失敗した場合
-		return E_FAIL;
-	}
-
-	if (m_pJoyconL == nullptr)
-	{
-		//ジョイコンの生成
-		m_pJoyconL = new CJoycon;
-	}
-	//ジョイコンの初期化処理
-	if (FAILED(m_pJoyconL->Init_L()))
-	{//初期化処理が失敗した場合
-		return E_FAIL;
-	}
-
-	if (m_pJoyconR == nullptr)
-	{
-		//ジョイコンの生成
-		m_pJoyconR = new CJoycon;
-	}
-	//ジョイコンの初期化処理
-	if (FAILED(m_pJoyconR->Init_R()))
 	{//初期化処理が失敗した場合
 		return E_FAIL;
 	}
@@ -340,24 +315,6 @@ void CManager::Uninit(void)
 		m_pInputJoyPad = nullptr;
 	}
 
-	if (m_pJoyconL != nullptr)
-	{
-		//ジョイコンの終了処理
-		m_pJoyconL->Uninit();
-
-		delete m_pJoyconL;
-		m_pJoyconL = nullptr;
-	}
-
-	if (m_pJoyconR != nullptr)
-	{
-		//ジョイコンの終了処理
-		m_pJoyconR->Uninit();
-
-		delete m_pJoyconR;
-		m_pJoyconR = nullptr;
-	}
-
 	if (m_pInputKeyboard != nullptr)
 	{
 		//キーボードの終了処理
@@ -419,12 +376,6 @@ void CManager::Update(void)
 	//ジョイパッドの更新処理
 	m_pInputJoyPad->Update();
 
-	//ジョイパッドの更新処理
-	if (m_pJoyconL != nullptr) m_pJoyconL->Update();
-
-	//ジョイパッドの更新処理
-	if (m_pJoyconR != nullptr) m_pJoyconR->Update();
-
 	//マウスの更新処理
 	m_pInputMouse->Update();
 
@@ -451,9 +402,7 @@ void CManager::Update(void)
 #endif
 
 	if ((CManager::GetInstance()->GetInputKeyboard()->GetTrigger(DIK_P) == true ||
-		CManager::GetInstance()->GetInputJoyPad()->GetTrigger(CInputJoypad::BUTTON_START, 0) == true) ||
-		(CManager::GetInstance()->GetJoyconR()->GetDifferButton() == CJoycon::BUTTON_HOME &&
-			CManager::GetInstance()->GetJoyconR()->GetTriggerButton() == true)&&
+		CManager::GetInstance()->GetInputJoyPad()->GetTrigger(CInputJoypad::BUTTON_START, 0) == true) &&
 		m_PauseOK == true &&
 		m_Fade->GetFade() == CFade::FADE_NONE)
 	{

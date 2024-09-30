@@ -300,9 +300,6 @@
     <ClCompile Include="hid.cpp">
       <Filter>ソース ファイル\01_System</Filter>
     </ClCompile>
-    <ClCompile Include="joycon.cpp">
-      <Filter>ソース ファイル\01_System</Filter>
-    </ClCompile>
     <ClCompile Include="MapModel.cpp">
       <Filter>ソース ファイル\07_Map</Filter>
     </ClCompile>
@@ -543,9 +540,6 @@
       <Filter>ヘッダー ファイル\04_Direction</Filter>
     </ClInclude>
     <ClInclude Include="hidapi.h">
-      <Filter>ヘッダー ファイル\01_System</Filter>
-    </ClInclude>
-    <ClInclude Include="joycon.h">
       <Filter>ヘッダー ファイル\01_System</Filter>
     </ClInclude>
     <ClInclude Include="MapModel.h">

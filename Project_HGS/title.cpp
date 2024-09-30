@@ -8,7 +8,6 @@
 #include "manager.h"
 #include "fade.h"
 #include "input.h"
-#include "joycon.h"
 #include "object2D.h"
 #include "texture.h"
 #include "particle.h"
@@ -175,15 +174,6 @@ void CTitle::Select(void)
 	else if (CManager::GetInstance()->GetInputJoyPad()->GetTrigger(CInputJoypad::BUTTON_A, 0) == true)
 	{
 		CManager::GetInstance()->SetTypeInput(CManager::GetInstance()->TYPE_JOYPAD);	// 入力タイプ：パッド
-		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_ENTER_PUSH);
-
-		// ゲーム遷移
-		CFade::SetFade(CScene::MODE_TUTORIAL);
-	}
-	else if ((CManager::GetInstance()->GetJoyconR()->GetCommonButton() & CJoycon::BUTTON_A &&
-		CManager::GetInstance()->GetJoyconR()->GetTriggerButton() == true))
-	{
-		CManager::GetInstance()->SetTypeInput(CManager::GetInstance()->TYPE_JOYCON);	// 入力タイプ：パッド
 		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_ENTER_PUSH);
 
 		// ゲーム遷移

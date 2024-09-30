@@ -16,7 +16,6 @@ class CDebugProc;
 class CInputKeyboard;
 class CInputJoypad;
 class CInputMouse;
-class CJoycon;
 class CCamera;
 class CMiniMapCamera;
 class CLight;
@@ -88,8 +87,6 @@ public:
 	CInputKeyboard *GetInputKeyboard(void) { return m_pInputKeyboard; }
 	CInputJoypad* GetInputJoyPad(void) { return m_pInputJoyPad; }
 	CInputMouse*GetInputMouse(void) { return m_pInputMouse; }
-	CJoycon* GetJoyconL(void) { return m_pJoyconL; }
-	CJoycon* GetJoyconR(void) { return m_pJoyconR; }
 	CCamera* GetCamera(void) { return m_pCamera; }
 	CMiniMapCamera* GetMiniMapCamera(void) { return m_pMiniMapCamera; }
 	CTexture *GetTexture(void) { return m_pTexture; }
@@ -158,8 +155,6 @@ private:
 	CInputKeyboard *m_pInputKeyboard;	//キーボードのポインタ
 	CInputJoypad* m_pInputJoyPad;		//ジョイパッドのポインタ
 	CInputMouse*m_pInputMouse;			//マウスのポインタ
-	CJoycon* m_pJoyconL;				//ジョイコンLのポインタ
-	CJoycon* m_pJoyconR;				//ジョイコンRのポインタ
 	CCamera *m_pCamera;					//カメラのポインタ
 	CMiniMapCamera* m_pMiniMapCamera;	//ミニマップカメラのポインタ
 	CLight *m_pLight;					//ライトのポインタ
