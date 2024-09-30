@@ -155,6 +155,7 @@ void CPlayer2D::Draw(void)
 //====================================================================
 void CPlayer2D::Death(void)
 {
+	CManager::GetInstance()->SetPause(false);
 	SetDeathFlag(true);
 	CGame::SetGameEnd(true);
 	CObjectAnim2D* pDead;

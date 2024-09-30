@@ -44,7 +44,7 @@ private:
 	std::list<CBlock*> listBlock;
 
 	int m_nBlockCounter;
-	int m_nBlockRandom = 1450;
+	int m_nBlockRandom = 2250;
 	int m_nBlockRandomPos;
 	int m_nBlockLevel;
 	int m_nBlockLevelCount;

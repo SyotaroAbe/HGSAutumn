@@ -1,13 +1,6 @@
-﻿  Player2D.cpp
-  block.cpp
+﻿  block.cpp
   blockmanager.cpp
-C:\Users\student\Desktop\HGS_00\HGSAutumn\Project_HGS\blockmanager.cpp(125,2): error C2059: 構文エラー: '}'
-C:\Users\student\Desktop\HGS_00\HGSAutumn\Project_HGS\blockmanager.cpp(125,2): error C2143: 構文エラー: ';' が '}' の前にありません。
-C:\Users\student\Desktop\HGS_00\HGSAutumn\Project_HGS\blockmanager.cpp(126,1): error C2143: 構文エラー: ';' が '}' の前にありません。
-C:\Users\student\Desktop\HGS_00\HGSAutumn\Project_HGS\blockmanager.cpp(126,1): error C2059: 構文エラー: '}'
-C:\Users\student\Desktop\HGS_00\HGSAutumn\Project_HGS\blockmanager.cpp(132,1): error C2143: 構文エラー: ';' が '{' の前にありません。
-C:\Users\student\Desktop\HGS_00\HGSAutumn\Project_HGS\blockmanager.cpp(132,1): error C2447: '{': 対応する関数ヘッダーがありません (旧形式の仮引数リスト?)
-  game.cpp
-  main.cpp
-  manager.cpp
-  tutorial.cpp
+  コード生成しています。
+  Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
+  コード生成が終了しました。
+  Team.vcxproj -> C:\Users\student\Desktop\HGS_00\HGSAutumn\Project_HGS\Team.exe
