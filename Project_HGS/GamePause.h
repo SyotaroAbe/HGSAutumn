@@ -8,7 +8,7 @@
 #define _GAMEPAUSE_H_
 
 #include "main.h"
-
+#include "objectAnim2d.h"
 //É}ÉNÉçíËã`
 #define MAX_GAMEPAUSE (1)
 #define MAX_GAMEFG (1)
@@ -40,7 +40,7 @@ private:
 	
 	static CObject2D* m_pPauseFG[MAX_GAMEFG];
 
-
+	CObjectAnim2D* pNoise;
 	float m_MoveRot;
 	D3DXVECTOR3 m_MarkRot;
 	D3DXVECTOR3 m_InitPos[3];

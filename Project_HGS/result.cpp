@@ -22,8 +22,8 @@ namespace
 	const char* END_SET_OK("ENDSETSTAGE");	//エンドメッセージがあるかどうかの確認
 	const float SCORE_POSX(300.0f);
 	const float SCORE_MOVEX(20.1f);
-	const D3DXVECTOR3 SCORE_TEX_POS(D3DXVECTOR3(350.0f, 350.0f, 0.0f));		//評価点の位置
-	const D3DXVECTOR3 SCORE_VALUE_POS(D3DXVECTOR3(SCORE_TEX_POS.x - 105.0f, SCORE_TEX_POS.y + 120.0f, 0.0f));		//評価点の値の位置
+	const D3DXVECTOR3 SCORE_TEX_POS(D3DXVECTOR3(200.0f, 400.0f, 0.0f));		//評価点の位置
+	const D3DXVECTOR3 SCORE_VALUE_POS(D3DXVECTOR3(SCORE_TEX_POS.x + 105.0f, SCORE_TEX_POS.y, 0.0f));		//評価点の値の位置
 	const float SCORE_DISTANCE(25.0f);
 }
 
@@ -95,14 +95,14 @@ HRESULT CResult::Init(void)
 	m_pScoreTex->SetPos(SCORE_TEX_POS);
 	m_pScoreTex->SetWidth(200.0f);
 	m_pScoreTex->SetHeight(80.0f);
-	//m_pScoreTex->SetTexture("data\\TEXTURE\\result\\result_score.png");
+	m_pScoreTex->SetTexture("data\\TEXTURE\\HGS\\result_score.png");
 
 	//全体ランキング(「ランキング」)
 	CObject2D *m_pRank = CObject2D::Create();
-	m_pRank->SetPos(D3DXVECTOR3(SCREEN_WIDTH * 0.75f, SCREEN_HEIGHT * 0.185f, 0.0f));
-	m_pRank->SetWidth(240.0f);
-	m_pRank->SetHeight(120.0f);
-	//m_pRank->SetTexture("data\\TEXTURE\\result\\ranking.png");
+	m_pRank->SetPos(D3DXVECTOR3(SCREEN_WIDTH * 0.80f, SCREEN_HEIGHT * 0.185f, 0.0f));
+	m_pRank->SetWidth(340.0f);
+	m_pRank->SetHeight(180.0f);
+	m_pRank->SetTexture("data\\TEXTURE\\HGS\\ranking.png");
 
 	//全体ランキング(スコア)
 	m_pLifeRanking = CRanking::Create("data\\TXT\\LifeRanking.txt");
@@ -118,10 +118,10 @@ HRESULT CResult::Init(void)
 
 		//数字の生成
 		CObject2D* m_pRank = CObject2D::Create();
-		m_pRank->SetPos(D3DXVECTOR3(RankPos.x - 160.0f, RankPos.y, RankPos.z));
+		m_pRank->SetPos(D3DXVECTOR3(RankPos.x - 150.0f, RankPos.y + 17.0f, RankPos.z));
 		m_pRank->SetWidth(256.0f);
 		m_pRank->SetHeight(102.4f);
-		m_pRank->SetTexture("data\\TEXTURE\\RANKING_TEXT.png");
+		m_pRank->SetTexture("data\\TEXTURE\\HGS\\RANKING_TEXT.png");
 		m_pRank->SetAnim(D3DXVECTOR2(0.0f, nCntObject * 0.2f),
 						 D3DXVECTOR2(1.0f, nCntObject * 0.2f + 0.2f));
 	}

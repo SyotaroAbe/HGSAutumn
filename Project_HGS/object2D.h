@@ -28,7 +28,7 @@ public:
 	void SetVerTex(void);						//頂点座標の設定
 	void SetAnim(D3DXVECTOR2 Tex);				//テクスチャ座標の設定
 	void SetAnim(D3DXVECTOR2 TexMin, D3DXVECTOR2 TexMax);
-
+	void SetAnimTex(const int nPattern, const int nWidthPtrn, const int nHeightPtrn);
 	void SetScroll(D3DXVECTOR2 Tex);			//テクスチャ座標の設定
 	void SetColor(D3DXCOLOR col);				//頂点カラーの設定
 	void SetColorA(float A);					//頂点カラーの設定

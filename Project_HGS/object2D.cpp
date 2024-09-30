@@ -292,7 +292,36 @@ void CObject2D::SetAnim(D3DXVECTOR2 TexMin, D3DXVECTOR2 TexMax)
 	//頂点バッファをアンロックする
 	m_pVtxBuff->Unlock();
 }
+//============================================================
+//	アニメーションのテクスチャ座標の設定処理(丹野竜之介)
+//============================================================
+void CObject2D::SetAnimTex(const int nPattern, const int nWidthPtrn, const int nHeightPtrn)
+{
+	// 変数を宣言
+	float fWidthRate = 1.0f / nWidthPtrn;	// 横の分割数の割合
+	float fHeightRate = 1.0f / nHeightPtrn;	// 縦の分割数の割合
+	int nWidthCurrent = nPattern % nWidthPtrn;					// 現在の横のパターン
+	int nHeightCurrent = (nPattern / nWidthPtrn) % nHeightPtrn;	// 現在の縦のパターン
 
+	// ポインタを宣言
+	VERTEX_2D* pVtx;	// 頂点情報へのポインタ
+
+	if (m_pVtxBuff != nullptr)
+	{ // 使用中の場合
+
+		// 頂点バッファをロックし、頂点情報へのポインタを取得
+		m_pVtxBuff->Lock(0, 0, (void**)&pVtx, 0);
+
+		// テクスチャ座標の設定
+		pVtx[0].tex = D3DXVECTOR2(fWidthRate * nWidthCurrent, fHeightRate * nHeightCurrent);
+		pVtx[1].tex = D3DXVECTOR2(fWidthRate * (nWidthCurrent + 1), fHeightRate * nHeightCurrent);
+		pVtx[2].tex = D3DXVECTOR2(fWidthRate * nWidthCurrent, fHeightRate * (nHeightCurrent + 1));
+		pVtx[3].tex = D3DXVECTOR2(fWidthRate * (nWidthCurrent + 1), fHeightRate * (nHeightCurrent + 1));
+
+		// 頂点バッファをアンロックする
+		m_pVtxBuff->Unlock();
+	}
+}
 //====================================================================
 //テクスチャ座標の設定
 //====================================================================

@@ -40,6 +40,7 @@ CObjectAnim2D* CObjectAnim2D::Create(D3DXVECTOR3 pos, int nU, int nV, int nAnim,
 		//オブジェクト2Dの生成
 		pObject2D = new CObjectAnim2D(nPriority);
 	}
+	pObject2D->Init();
 	pObject2D->SetPos(pos);
 	pObject2D->m_nU = nU;
 	pObject2D->m_nV = nV;
@@ -55,7 +56,7 @@ CObjectAnim2D* CObjectAnim2D::Create(D3DXVECTOR3 pos, int nU, int nV, int nAnim,
 HRESULT CObjectAnim2D::Init(void)
 {
 	
-	Init();
+	CObject2D::Init();
 	return S_OK;
 }
 
@@ -64,7 +65,8 @@ HRESULT CObjectAnim2D::Init(void)
 //====================================================================
 void CObjectAnim2D::Uninit(void)
 {
-	Uninit();
+
+	CObject2D::Uninit();
 }
 
 
@@ -74,7 +76,8 @@ void CObjectAnim2D::Uninit(void)
 //====================================================================
 void CObjectAnim2D::Update(void)
 {
-	if (m_nCurrent > m_nAnim)
+	SetVerTex();
+	if (m_nCurrent < m_nAnim)
 	{
 		m_fCurrentFrame += 1.0f;
 		if (m_fCurrentFrame > (60.0f / m_fFramerate))
@@ -83,7 +86,12 @@ void CObjectAnim2D::Update(void)
 			m_nCurrent++;
 		}
 	}
-	SetAnim(D3DXVECTOR2(1.0f / m_nU * (m_nCurrent % m_nU), 1.0f / m_nV * (m_nCurrent / m_nV)), D3DXVECTOR2(1.0f / m_nU * ((m_nCurrent % m_nU) +1), 1.0f / m_nV * ((m_nCurrent / m_nV))+1));
+	else if (m_bLoop)
+	{
+		m_nCurrent = 0;
+	}
+	
+	SetAnimTex(m_nCurrent, m_nU, m_nV);
 }
 
 //====================================================================
@@ -91,5 +99,6 @@ void CObjectAnim2D::Update(void)
 //====================================================================
 void CObjectAnim2D::Draw(void)
 {
-	Draw();
+
+	CObject2D::Draw();
 }
