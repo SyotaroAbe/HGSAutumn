@@ -1,4 +1,5 @@
-﻿  Player2D.cpp
+﻿  game.cpp
+  tutorial.cpp
   コード生成しています。
   Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
   コード生成が終了しました。

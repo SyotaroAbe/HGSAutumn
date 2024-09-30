@@ -434,7 +434,7 @@ void CManager::Update(void)
 	{
 		//ðŒH ˆ—‚PFˆ—‚Q;
 		m_Pause = m_Pause ? false : true;
-
+		CManager::GetInstance()->GetSound()->PlaySoundA(CSound::SOUND_LABEL_SE_BOSS_DASH);
 		switch (CScene::GetMode())
 		{
 		case CScene::MODE_GAME:
